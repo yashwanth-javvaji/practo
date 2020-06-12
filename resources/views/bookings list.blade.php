@@ -81,7 +81,7 @@
                         <a class="nav-link" href="/#about">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#contact-us">Contact Us</a>
+                        <a class="nav-link" href="/#contact-us">Contact Us</a>
                     </li>
                     @if(Session::get('admin'))
                     <li class="nav-item">
