@@ -136,10 +136,4 @@ class Practo extends Controller
         }
         return redirect('/bookings list');
     }
-    function ohdeletecheyra(){
-        DB::table('tests')->delete();
-        DB::table('labs')->delete();
-        DB::table('tests_labs')->delete();
-        return test::all();
-    }
 }
