@@ -136,32 +136,4 @@ class Practo extends Controller
         }
         return redirect('/bookings list');
     }
-    function addtestslabs(){
-        DB::table('tests_labs')->delete();
-        $data = tests_lab::where(['test_id' => 13, 'lab_id' => 25])->get();
-        if($data->isEmpty()){
-            DB::select('insert into tests_labs(test_id, lab_id) values(13, 25)');
-        }
-        $data = tests_lab::where(['test_id' => 13, 'lab_id' => 26])->get();
-        if($data->isEmpty()){
-            DB::select('insert into tests_labs(test_id, lab_id) values(13, 26)');
-        }
-        $data = tests_lab::where(['test_id' => 14, 'lab_id' => 26])->get();
-        if($data->isEmpty()){
-            DB::select('insert into tests_labs(test_id, lab_id) values(14, 26)');
-        }
-        $data = tests_lab::where(['test_id' => 14, 'lab_id' => 27])->get();
-        if($data->isEmpty()){
-            DB::select('insert into tests_labs(test_id, lab_id) values(14, 27)');
-        }
-        $data = tests_lab::where(['test_id' => 15, 'lab_id' => 27])->get();
-        if($data->isEmpty()){
-            DB::select('insert into tests_labs(test_id, lab_id) values(15, 27)');
-        }
-        $data = tests_lab::where(['test_id' => 15, 'lab_id' => 25])->get();
-        if($data->isEmpty()){
-            DB::select('insert into tests_labs(test_id, lab_id) values(15, 25)');
-        }
-        return tests_lab::all();
-    }
 }

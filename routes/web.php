@@ -28,5 +28,4 @@ Route::group(['middleware'=>'web'], function(){
     Route::post('/admin_login', 'Practo@login');
     Route::get('/bookings list', 'Practo@bookings_list');
     Route::get('/logout', 'Practo@logout');
-    Route::get('/addtestslabs', 'Practo@addtestslabs');
 });
