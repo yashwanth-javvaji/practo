@@ -29,5 +29,4 @@ Route::group(['middleware'=>'web'], function(){
     Route::get('/bookings list', 'Practo@bookings_list');
     Route::get('/logout', 'Practo@logout');
     Route::get('/delete/{id}', 'Practo@delete');
-    Route::get('/addtestslabs', 'Practo@addtestslabs');
 });
