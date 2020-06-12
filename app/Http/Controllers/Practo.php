@@ -137,6 +137,10 @@ class Practo extends Controller
         return redirect('/bookings list');
     }
     function add(){
-        return Crypt::encrypt('admin@practo');
+        $admin = new admin;
+        $admin->admin_name = 'admin';
+        $admin->password = Crypt::encrypt('admin@practo');
+        $admin->save();
+        return Crypt::decrypt($admin->password);
     }
 }
