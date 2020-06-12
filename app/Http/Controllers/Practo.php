@@ -115,7 +115,7 @@ class Practo extends Controller
         $data = $this->paginate($items);
         return view('/bookings list', compact('data'));
     }
-    public function paginate($items, $perPage = 10, $page = null){
+    public function paginate($items, $perPage = 6, $page = null){
         $page = $page ?: (Paginator::resolveCurrentPage() ?: 1);
         $items = $items instanceof Collection ? $items : Collection::make($items);
         return new LengthAwarePaginator($items->forPage($page, $perPage), $items->count(), $perPage, $page, [

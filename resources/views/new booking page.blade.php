@@ -47,7 +47,7 @@
                         @endforeach
                     </select>
                 </div>
-                @error('tests')
+                @error('test')
                     <div class="row">
                         <span style="color: red;"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>&nbsp{{$message}}</span>
                     </div>
