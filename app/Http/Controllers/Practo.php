@@ -36,9 +36,9 @@ class Practo extends Controller
         ]);
         $data = tests_lab::where(['test_id' => $req->input('test'), 'lab_id' => $req->input('lab')])->get();
         if($data->isEmpty()){
-            $lab = $req->input('lab');
-            $test = $req->input('test');
-            Session::flash('status', "lab $lab does not provide test $test");
+            $lab = lab::find($req->input('lab'))->lab_name;
+            $test = test::find($req->input('test'))->test_name;
+            Session::flash('status', "$lab does not provide $test");
             return redirect('/new booking page');
         }
         else{
@@ -135,5 +135,11 @@ class Practo extends Controller
             Session::flash('delete', 'Deleted Successfully!');
         }
         return redirect('/bookings list');
+    }
+    function deletecheyra(){
+        DB::table('tests')->delete();
+        DB::table('labs')->delete();
+        DB::table('tests_labs')->delete();
+        return test::all();
     }
 }
