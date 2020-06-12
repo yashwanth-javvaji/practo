@@ -31,7 +31,7 @@ class Practo extends Controller
             "name" => "required",
             "contact_number" => "required|digits:10",
             "test" => "required",
-            "prescription" => "required|max:64",
+            "prescription" => "required|max:2048",
             "lab" => "required",
         ]);
         $data = tests_lab::where(['test_id' => $req->input('test'), 'lab_id' => $req->input('lab')])->get();
