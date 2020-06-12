@@ -31,7 +31,7 @@ class Practo extends Controller
             "name" => "required",
             "contact_number" => "required|digits:10",
             "test" => "required",
-            "prescription" => "required|max:5120",
+            "prescription" => "required|max:64",
             "lab" => "required",
         ]);
         $data = tests_lab::where(['test_id' => $req->input('test'), 'lab_id' => $req->input('lab')])->get();
@@ -130,7 +130,9 @@ class Practo extends Controller
     function delete($id){
         $booking = booking::find($id);
         if($booking){
-            unlink('uploads/'.$booking->file_name);
+            if(unlink('uploads/'.$booking->file_name)){
+                unlink('uploads/'.$booking->file_name);
+            }
             $booking->delete();
             Session::flash('delete', 'Deleted Successfully!');
         }
