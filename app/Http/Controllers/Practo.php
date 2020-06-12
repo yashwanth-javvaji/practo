@@ -98,7 +98,7 @@ class Practo extends Controller
             "password" =>"required",
         ]);
         $data = admin::where(['admin_name' => $req->input('admin_name')])->get();
-        if(!$data->isEmpty() and $data[0]->password == $req->input('password')){
+        if(!$data->isEmpty() and Crypt::decrypt($data[0]->password) == $req->input('password')){
             Session::put('admin', $req->input('admin_name'));
             return redirect('/');
         }
@@ -135,5 +135,8 @@ class Practo extends Controller
             Session::flash('delete', 'Deleted Successfully!');
         }
         return redirect('/bookings list');
+    }
+    function add(){
+        return Crypt::encrypt('admin@practo');
     }
 }
