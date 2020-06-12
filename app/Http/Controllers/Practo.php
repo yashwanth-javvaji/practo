@@ -140,45 +140,27 @@ class Practo extends Controller
         DB::table('tests_labs')->delete();
         $data = tests_lab::where(['test_id' => 13, 'lab_id' => 13])->get();
         if($data->isEmpty()){
-            $item = new tests_lab;
-            $item->test_id = 13;
-            $item->lab_id = 13;
-            $item->save();
+            DB::select('insert into tests_labs(test_id, lab_id) values(13, 13)');
         }
         $data = tests_lab::where(['test_id' => 13, 'lab_id' => 14])->get();
         if($data->isEmpty()){
-            $item = new tests_lab;
-            $item->test_id = 13;
-            $item->lab_id = 14;
-            $item->save();
+            DB::select('insert into tests_labs(test_id, lab_id) values(13, 14)');
         }
         $data = tests_lab::where(['test_id' => 14, 'lab_id' => 14])->get();
         if($data->isEmpty()){
-            $item = new tests_lab;
-            $item->test_id = 14;
-            $item->lab_id = 14;
-            $item->save();
+            DB::select('insert into tests_labs(test_id, lab_id) values(14, 14)');
         }
         $data = tests_lab::where(['test_id' => 14, 'lab_id' => 15])->get();
         if($data->isEmpty()){
-            $item = new tests_lab;
-            $item->test_id = 14;
-            $item->lab_id = 15;
-            $item->save();
+            DB::select('insert into tests_labs(test_id, lab_id) values(14, 15)');
         }
         $data = tests_lab::where(['test_id' => 15, 'lab_id' => 15])->get();
         if($data->isEmpty()){
-            $item = new tests_lab;
-            $item->test_id = 15;
-            $item->lab_id = 15;
-            $item->save();
+            DB::select('insert into tests_labs(test_id, lab_id) values(15, 15)');
         }
         $data = tests_lab::where(['test_id' => 15, 'lab_id' => 13])->get();
         if($data->isEmpty()){
-            $item = new tests_lab;
-            $item->test_id = 15;
-            $item->lab_id = 13;
-            $item->save();
+            DB::select('insert into tests_labs(test_id, lab_id) values(15, 13)');
         }
         return tests_lab::all();
     }
