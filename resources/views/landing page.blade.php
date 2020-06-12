@@ -92,10 +92,10 @@
 </div>
 <div class="container" id="home">
     <div class="row justify-content-around">
-        <div class="col-11 col-md-5">
+        <div class="col-11 col-lg-5">
             <img src="{{ URL::asset('images/practo.png')}}" class="img img-responsive">
         </div>
-        <div class="col-11 col-md-6 my-auto">
+        <div class="col-11 col-lg-6 my-auto">
             <p>
                 Introducing Video Consultations.<br>
                 Don&apos;t delay your health concerns.
