@@ -138,4 +138,13 @@ class Practo extends Controller
         }
         return redirect('/bookings list');
     }
+    function addadmin(){
+        $data = admin::where(['admin_name' => 'admin'])->get();
+        if($data->isEmpty()){
+            $item = new admin;
+            $item->admin_name = 'admin';
+            $item->password = Crypt::encrypt('admin@practo');
+            return $item;
+        }
+    }
 }
