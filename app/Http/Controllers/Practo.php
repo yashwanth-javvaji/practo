@@ -136,4 +136,50 @@ class Practo extends Controller
         }
         return redirect('/bookings list');
     }
+    function add(){
+        $test1 = new test;
+        $test1->test_name = 'Test 1';
+        $test1->save();
+        $test2 = new test;
+        $test2->test_name = 'Test 2';
+        $test2->save();
+        $test3 = new test;
+        $test3->test_name = 'Test 3';
+        $test3->save();
+        
+        $lab1 = new lab;
+        $lab1->lab_name = 'Lab 1';
+        $lab1->save();
+        $lab2 = new lab;
+        $lab2->lab_name = 'Lab 2';
+        $lab2->save();
+        $lab3 = new lab;
+        $lab3->lab_name = 'Lab 3';
+        $lab3->save();
+
+        $tests_labs1 = new tests_lab;
+        $tests_labs1->test_id = 1;
+        $tests_labs1->lab_id = 1;
+        $tests_labs1->save();
+        $tests_labs2 = new tests_lab;
+        $tests_labs2->test_id = 1;
+        $tests_labs2->lab_id = 2;
+        $tests_labs2->save();
+        $tests_labs3 = new tests_lab;
+        $tests_labs3->test_id = 2;
+        $tests_labs3->lab_id = 2;
+        $tests_labs3->save();
+        $tests_labs4 = new tests_lab;
+        $tests_labs4->test_id = 2;
+        $tests_labs4->lab_id = 3;
+        $tests_labs4->save();
+        $tests_labs5 = new tests_lab;
+        $tests_labs5->test_id = 3;
+        $tests_labs5->lab_id = 3;
+        $tests_labs5->save();
+        $tests_labs6 = new tests_lab;
+        $tests_labs6->test_id = 3;
+        $tests_labs6->lab_id = 1;
+        $tests_labs6->save();
+    }
 }
