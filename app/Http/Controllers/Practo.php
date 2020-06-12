@@ -138,29 +138,29 @@ class Practo extends Controller
     }
     function addtestslabs(){
         DB::table('tests_labs')->delete();
-        $data = tests_lab::where(['test_id' => 13, 'lab_id' => 22])->get();
+        $data = tests_lab::where(['test_id' => 13, 'lab_id' => 25])->get();
         if($data->isEmpty()){
-            DB::select('insert into tests_labs(test_id, lab_id) values(13, 22)');
+            DB::select('insert into tests_labs(test_id, lab_id) values(13, 25)');
         }
-        $data = tests_lab::where(['test_id' => 13, 'lab_id' => 23])->get();
+        $data = tests_lab::where(['test_id' => 13, 'lab_id' => 26])->get();
         if($data->isEmpty()){
-            DB::select('insert into tests_labs(test_id, lab_id) values(13, 23)');
+            DB::select('insert into tests_labs(test_id, lab_id) values(13, 26)');
         }
-        $data = tests_lab::where(['test_id' => 14, 'lab_id' => 23])->get();
+        $data = tests_lab::where(['test_id' => 14, 'lab_id' => 26])->get();
         if($data->isEmpty()){
-            DB::select('insert into tests_labs(test_id, lab_id) values(14, 23)');
+            DB::select('insert into tests_labs(test_id, lab_id) values(14, 26)');
         }
-        $data = tests_lab::where(['test_id' => 14, 'lab_id' => 24])->get();
+        $data = tests_lab::where(['test_id' => 14, 'lab_id' => 27])->get();
         if($data->isEmpty()){
-            DB::select('insert into tests_labs(test_id, lab_id) values(14, 24)');
+            DB::select('insert into tests_labs(test_id, lab_id) values(14, 27)');
         }
-        $data = tests_lab::where(['test_id' => 15, 'lab_id' => 24])->get();
+        $data = tests_lab::where(['test_id' => 15, 'lab_id' => 27])->get();
         if($data->isEmpty()){
-            DB::select('insert into tests_labs(test_id, lab_id) values(15, 24)');
+            DB::select('insert into tests_labs(test_id, lab_id) values(15, 27)');
         }
-        $data = tests_lab::where(['test_id' => 15, 'lab_id' => 22])->get();
+        $data = tests_lab::where(['test_id' => 15, 'lab_id' => 25])->get();
         if($data->isEmpty()){
-            DB::select('insert into tests_labs(test_id, lab_id) values(15, 22)');
+            DB::select('insert into tests_labs(test_id, lab_id) values(15, 25)');
         }
         return tests_lab::all();
     }
