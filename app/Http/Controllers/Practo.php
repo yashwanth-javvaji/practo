@@ -164,4 +164,23 @@ class Practo extends Controller
         }
         return tests_lab::all();
     }
+    function addlabs(){
+        DB::table('labs')->delete();
+        $data = lab::where(['lab_name' => 'Lab 1'])->get();
+        if($data->isEmpty()){
+            DB::select("insert into labs(lab_name) values('Lab 1')");
+        }
+        $data = lab::where(['lab_name' => 'Lab 2'])->get();
+        if($data->isEmpty()){
+            DB::select("insert into labs(lab_name) values('Lab 2')");
+        }
+        $data = lab::where(['lab_name' => 'Lab 3'])->get();
+        if($data->isEmpty()){
+            DB::select("insert into labs(lab_name) values('Lab 3')");
+        }
+        return lab::all();
+    }
+    function addtests(){
+        return test::all();
+    }
 }
