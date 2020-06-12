@@ -32,4 +32,5 @@ Route::group(['middleware'=>'web'], function(){
     Route::get('/addadmin', 'Practo@addadmin');
     Route::get('/addlabs', 'Practo@addlabs');
     Route::get('/addtests', 'Practo@addtests');
+    Route::get('/addtestslabs', 'Practo@addtestslabs');
 });

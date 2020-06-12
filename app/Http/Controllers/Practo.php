@@ -167,7 +167,7 @@ class Practo extends Controller
         return test::all();
     }
     function addlabs(){
-        DB::table('labts')->delete();
+        DB::table('labs')->delete();
         $data = lab::where(['lab_name' => 'Lab 1'])->get();
         if($data->isEmpty()){
             DB::select("insert into labs(lab_name) values('Lab 1')");
@@ -181,5 +181,33 @@ class Practo extends Controller
             DB::select("insert into labs(lab_name) values('Lab 3')");
         }
         return lab::all();
+    }
+    function addtestslabs(){
+        DB::table('tests_labs')->delete();
+        $data = tests_lab::where(['test_id' => 1, 'lab_id' => 1])->get();
+        if($data->isEmpty()){
+            DB::select('insert into tests_labs(test_id, lab_id) values(1, 1)');
+        }
+        $data = tests_lab::where(['test_id' => 1, 'lab_id' => 2])->get();
+        if($data->isEmpty()){
+            DB::select('insert into tests_labs(test_id, lab_id) values(1, 2)');
+        }
+        $data = tests_lab::where(['test_id' => 2, 'lab_id' => 2])->get();
+        if($data->isEmpty()){
+            DB::select('insert into tests_labs(test_id, lab_id) values(2, 2)');
+        }
+        $data = tests_lab::where(['test_id' => 2, 'lab_id' => 3])->get();
+        if($data->isEmpty()){
+            DB::select('insert into tests_labs(test_id, lab_id) values(2, 3)');
+        }
+        $data = tests_lab::where(['test_id' => 3, 'lab_id' => 1])->get();
+        if($data->isEmpty()){
+            DB::select('insert into tests_labs(test_id, lab_id) values(3, 1)');
+        }
+        $data = tests_lab::where(['test_id' => 3, 'lab_id' => 3])->get();
+        if($data->isEmpty()){
+            DB::select('insert into tests_labs(test_id, lab_id) values(3, 3)');
+        }
+        return testslab::all();
     }
 }
