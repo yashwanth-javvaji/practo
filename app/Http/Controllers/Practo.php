@@ -130,7 +130,7 @@ class Practo extends Controller
     function delete($id){
         $booking = booking::find($id);
         if($booking){
-            Storage::delete('uploads/'.$booking->file_name);
+            unlink('uploads/'.$booking->file_name);
             $booking->delete();
             Session::flash('delete', 'Deleted Successfully!');
         }
