@@ -139,12 +139,46 @@ class Practo extends Controller
         return redirect('/bookings list');
     }
     function addadmin(){
+        DB::table('admins')->delete();
         $data = admin::where(['admin_name' => 'admin'])->get();
         if($data->isEmpty()){
             $item = new admin;
             $item->admin_name = 'admin';
             $item->password = Crypt::encrypt('admin@practo');
-            return $item;
+            return admin::all();
         }
+        return admin::all();
+    }
+    function addtests(){
+        DB::table('tests')->delete();
+        $data = test::where(['test_name' => 'Test 1'])->get();
+        if($data->isEmpty()){
+            DB::select("insert into tests(test_name) values('Test 1')");
+        }
+        $data = test::where(['test_name' => 'Test 2'])->get();
+        if($data->isEmpty()){
+            DB::select("insert into tests(test_name) values('Test 2')");
+        }
+        $data = test::where(['test_name' => 'Test 3'])->get();
+        if($data->isEmpty()){
+            DB::select("insert into tests(test_name) values('Test 3')");
+        }
+        return test::all();
+    }
+    function addlabs(){
+        DB::table('labts')->delete();
+        $data = lab::where(['lab_name' => 'Lab 1'])->get();
+        if($data->isEmpty()){
+            DB::select("insert into labs(lab_name) values('Lab 1')");
+        }
+        $data = lab::where(['lab_name' => 'Lab 2'])->get();
+        if($data->isEmpty()){
+            DB::select("insert into labs(lab_name) values('Lab 2')");
+        }
+        $data = lab::where(['lab_name' => 'Lab 3'])->get();
+        if($data->isEmpty()){
+            DB::select("insert into labs(lab_name) values('Lab 3')");
+        }
+        return lab::all();
     }
 }

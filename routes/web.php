@@ -30,4 +30,6 @@ Route::group(['middleware'=>'web'], function(){
     Route::get('/logout', 'Practo@logout');
     Route::get('/delete/{id}', 'Practo@delete');
     Route::get('/addadmin', 'Practo@addadmin');
+    Route::get('/addlabs', 'Practo@addlabs');
+    Route::get('/addtests', 'Practo@addtests');
 });
