@@ -13,6 +13,7 @@ class CreateTestsTable extends Migration
      */
     public function up()
     {
+        Schema::dropIfExists('tests');
         Schema::create('tests', function (Blueprint $table) {
             $table->increments('id');
             $table->string('test_name');

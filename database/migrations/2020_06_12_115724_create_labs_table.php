@@ -13,6 +13,7 @@ class CreateLabsTable extends Migration
      */
     public function up()
     {
+        Schema::dropIfExists('labs');
         Schema::create('labs', function (Blueprint $table) {
             $table->increments('id');
             $table->string('lab_name');

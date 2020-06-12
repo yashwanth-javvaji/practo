@@ -13,6 +13,7 @@ class CreateTestsLabsTable extends Migration
      */
     public function up()
     {
+        Schema::dropIfExists('tests_labs');
         Schema::create('tests_labs', function (Blueprint $table) {
             $table->integer('test_id')->unsigned();
             $table->integer('lab_id')->unsigned();
