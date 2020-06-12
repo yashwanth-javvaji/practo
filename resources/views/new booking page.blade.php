@@ -41,6 +41,7 @@
                 </div>
                 <div class="row">
                     <select class="form-control" id="test" name="test" type="text">
+                        <option value="" selected>None</option>
                         @foreach($tests as $test)
                         <option value="{{$test->id}}">{{$test->test_name}}</option>
                         @endforeach
@@ -73,6 +74,7 @@
                 </div>
                 <div class="row">
                     <select class="form-control" id="lab" name="lab" type="text">
+                        <option value="" selected>None</option>
                         @foreach($labs as $lab)
                         <option value="{{$lab->id}}">{{$lab->lab_name}}</option>
                         @endforeach

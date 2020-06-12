@@ -114,6 +114,7 @@
                 </div>
                 <div class="row">
                     <select class="form-control" id="timeslot" name="timeslot" type="text">
+                        <option value="" selected>None</option>
                         <option value="morning">Morning</option>
                         <option value="afternoon">Afternoon</option>
                         <option value="evening">Evening</option>

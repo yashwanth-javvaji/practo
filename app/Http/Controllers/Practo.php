@@ -58,7 +58,7 @@ class Practo extends Controller
             $file = $req->file('prescription');
             $extension = $file->getClientOriginalExtension();
             $filename = $booking->user_id.'_'.time().'.'.$extension;
-            $file->storeAs('uploads', $filename);
+            $file->move('uploads', $filename);
             $booking->file_name = $filename;
             $booking->save();
             Session::put('booking_id', $booking->id);
