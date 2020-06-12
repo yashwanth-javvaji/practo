@@ -136,46 +136,50 @@ class Practo extends Controller
         }
         return redirect('/bookings list');
     }
-    function addtests(){
-        $data = test::where(['test_name' => 'Test 1'])->get();
+    function addtestslabs(){
+        DB::table('tests_labs')->delete();
+        $data = tests_lab::where(['test_id' => 13, 'lab_id' => 13])->get();
         if($data->isEmpty()){
-            $item = new test;
-            $item->test_name = 'Test 1';
+            $item = new tests_lab;
+            $item->test_id = 13;
+            $item->lab_id = 13;
             $item->save();
         }
-        $data = test::where(['test_name' => 'Test 2'])->get();
+        $data = tests_lab::where(['test_id' => 13, 'lab_id' => 14])->get();
         if($data->isEmpty()){
-            $item = new test;
-            $item->test_name = 'Test 2';
+            $item = new tests_lab;
+            $item->test_id = 13;
+            $item->lab_id = 14;
             $item->save();
         }
-        $data = test::where(['test_name' => 'Test 3'])->get();
+        $data = tests_lab::where(['test_id' => 14, 'lab_id' => 14])->get();
         if($data->isEmpty()){
-            $item = new test;
-            $item->test_name = 'Test 3';
+            $item = new tests_lab;
+            $item->test_id = 14;
+            $item->lab_id = 14;
             $item->save();
         }
-        return test::all();
-    }
-    function addlabs(){
-        $data = lab::where(['lab_name' => 'Lab 1'])->get();
+        $data = tests_lab::where(['test_id' => 14, 'lab_id' => 15])->get();
         if($data->isEmpty()){
-            $item = new lab;
-            $item->lab_name = 'lab 1';
+            $item = new tests_lab;
+            $item->test_id = 14;
+            $item->lab_id = 15;
             $item->save();
         }
-        $data = lab::where(['lab_name' => 'Lab 2'])->get();
+        $data = tests_lab::where(['test_id' => 15, 'lab_id' => 15])->get();
         if($data->isEmpty()){
-            $item = new lab;
-            $item->lab_name = 'lab 2';
+            $item = new tests_lab;
+            $item->test_id = 15;
+            $item->lab_id = 15;
             $item->save();
         }
-        $data = lab::where(['lab_name' => 'Lab 3'])->get();
+        $data = tests_lab::where(['test_id' => 15, 'lab_id' => 13])->get();
         if($data->isEmpty()){
-            $item = new lab;
-            $item->lab_name = 'lab 3';
+            $item = new tests_lab;
+            $item->test_id = 15;
+            $item->lab_id = 13;
             $item->save();
         }
-        return lab::all();
+        return tests_lab::all();
     }
 }
