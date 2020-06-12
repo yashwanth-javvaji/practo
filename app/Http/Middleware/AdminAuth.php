@@ -32,6 +32,10 @@ class AdminAuth
         if($path == 'booking%20details' && !Session::get('user_name')){
             return redirect('/new booking page');
         }
+        if(substr($path, 0, 6) == 'delete' && !Session::get('admin')){
+            Session::flash('errors', 'To access delete you need to be logged in');
+            return redirect('/');
+        }
         return $next($request);
     }
 }

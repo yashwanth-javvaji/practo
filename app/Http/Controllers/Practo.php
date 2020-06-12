@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Collection;
 use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Support\Facades\Storage;
 use Session;
 use App\test;
 use App\lab;
@@ -37,7 +38,7 @@ class Practo extends Controller
         if($data->isEmpty()){
             $lab = $req->input('lab');
             $test = $req->input('test');
-            Session::flash('status', "lab_$lab does not provide test_$test");
+            Session::flash('status', "lab $lab does not provide test $test");
             return redirect('/new booking page');
         }
         else{
@@ -74,7 +75,7 @@ class Practo extends Controller
             "age" => "required|numeric|max:100",
             "email" => "required|email",
             "gender" => "required|in:male,female,other",
-            "date" => "required|date|date_format:Y-d-m|after:today",
+            "date" => "required|date|after:today",
             "timeslot" => "required",
             "details" => "required|max:209",
         ]);
@@ -97,7 +98,7 @@ class Practo extends Controller
             "password" =>"required",
         ]);
         $data = admin::where(['admin_name' => $req->input('admin_name')])->get();
-        if(Crypt::decrypt($data[0]->password) == $req->input('password')){
+        if(!$data->isEmpty() and $data[0]->password == $req->input('password')){
             Session::put('admin', $req->input('admin_name'));
             return redirect('/');
         }
@@ -109,8 +110,8 @@ class Practo extends Controller
                         users.contact_number, users.age, users.gender, tests.test_name, labs.lab_name
                         from users
                         join bookings on users.id = bookings.user_id
-                        join tests on bookings.test_id = tests.test_id
-                        join labs on bookings.lab_id = labs.lab_id");
+                        join tests on bookings.test_id = tests.id
+                        join labs on bookings.lab_id = labs.id");
         $data = $this->paginate($items);
         return view('/bookings list', compact('data'));
     }
@@ -125,5 +126,14 @@ class Practo extends Controller
     function logout(){
         Session::forget('admin');
         return redirect('/');
+    }
+    function delete($id){
+        $booking = booking::find($id);
+        if($booking){
+            Storage::delete('uploads/'.$booking->file_name);
+            $booking->delete();
+            Session::flash('delete', 'Deleted Successfully!');
+        }
+        return redirect('/bookings list');
     }
 }

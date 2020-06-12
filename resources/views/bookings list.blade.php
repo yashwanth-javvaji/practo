@@ -8,7 +8,58 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
         <script src="https://kit.fontawesome.com/a076d05399.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="{{URL::asset('css/admin.css')}}">
+        <style>
+            body {
+                background-color: #5f5f5f;
+                margin: 0;
+                padding: 0;
+            }
+
+            .navbar-dark {
+                background-color: #000000;
+                padding: 0;
+            }
+
+            .navbar-brand {
+                margin-left: 20px;
+                font-size: 20px;
+            }
+
+            .nav-link {
+                font-size: 15px;
+            }
+
+            #navigation .active {
+                background-color: #ffffff;
+                color: #000000;
+            }
+
+            #navigation .nav-link:hover {
+                background-color: #000080;
+                color: #ffffff;
+            }
+
+            .container {
+                margin-top: 50px;
+            }
+
+            table {
+                color: #ffffff;
+                text-align: center;
+            }
+
+            tr:nth-child(odd) {
+                background-color: rgba(0, 0, 128, 0.9);
+            }
+
+            tr:nth-child(even) {
+                background-color: rgba(0, 0, 128, 0.5);
+            }
+
+            tr:hover {
+                background-color: rgba(0, 128, 0, 0.9);
+            }
+        </style>
     </head>
     <header>
         <nav class="navbar fixed-top navbar-expand-md navbar-dark" id="navigation">
@@ -47,30 +98,18 @@
         </nav>
     </header>
     <body>
-        <header>
-            <nav class="navbar navbar-expand-md navbar-dark" id="navigation">
-                <a class="navbar-brand" href="#">
-                    <img src="logo.png" height=30 width=30>
-                    Practo
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbar-content">
-                    <ul class="navbar-nav ml-auto" align="center">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">About</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Contact Us</a>
-                        </li>
-                    </ul>
+        <div class="container">
+            @if(Session::get('delete'))
+                <div class="row justify-content-around">
+                    <div class="col-11 alert alert-success alert-dismissible fade show" role="alert">
+                        <strong>{{Session::get('delete')}}</strong>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
                 </div>
-            </nav>
-        </header>
+            @endif
+        </div>
         <div class="container" id="booking-list">
             <table class="table table-responsive-md">
                 <thead class="thead-dark">
@@ -86,6 +125,7 @@
                         <th scope="col">Lab</th>
                         <th scope="col">Date</th>
                         <th scope="col">Timeslot</th>
+                        <th scope="col">Delete</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -102,6 +142,7 @@
                         <td>{{$item->lab_name}}</td>
                         <td>{{$item->selected_date}}</td>
                         <td>{{$item->timeslot}}</td>
+                        <td><a href="/delete/{{$item->id}}"><i class="fa fa-trash" style="color: red;"></i></a></td>
                     </tr>
                     @endforeach
                 </tbody>

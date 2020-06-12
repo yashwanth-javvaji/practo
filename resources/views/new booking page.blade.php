@@ -42,7 +42,7 @@
                 <div class="row">
                     <select class="form-control" id="test" name="test" type="text">
                         @foreach($tests as $test)
-                        <option value="{{$test->test_id}}">{{$test->test_name}}</option>
+                        <option value="{{$test->id}}">{{$test->test_name}}</option>
                         @endforeach
                     </select>
                 </div>
@@ -74,7 +74,7 @@
                 <div class="row">
                     <select class="form-control" id="lab" name="lab" type="text">
                         @foreach($labs as $lab)
-                        <option value="{{$lab->lab_id}}">{{$lab->lab_name}}</option>
+                        <option value="{{$lab->id}}">{{$lab->lab_name}}</option>
                         @endforeach
                     </select>
                 </div>  
@@ -92,10 +92,10 @@
         </div>
         <div class="row justify-content-around" style="padding-top: 20px;">
             <div class="col-3">
-                <input id="submit" type="submit" class="form-control btn btn-success">
+                <button type="submit" class="form-control btn btn-success">Submit</button>
             </div>
             <div class="col-3">
-                <input id="cancel" class="form-control btn btn-danger" value="Cancel">
+                <a class="form-control btn btn-danger" href="/">Cancel</a>
             </div>
         </div>
     </form>

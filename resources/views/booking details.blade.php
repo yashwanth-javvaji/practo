@@ -143,10 +143,10 @@
         </div>
         <div class="row justify-content-around" style="padding-top: 20px;">
             <div class="col-3">
-                <input id="submit" type="submit" class="form-control btn btn-success">
+                <button type="submit" class="form-control btn btn-success">Submit</button>
             </div>
             <div class="col-3">
-                <input id="cancel" class="form-control btn btn-danger" value="Cancel">
+                <a class="form-control btn btn-danger" href="/new booking page">Cancel</a>
             </div>
         </div>
     </form>

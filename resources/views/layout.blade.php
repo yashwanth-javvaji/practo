@@ -8,7 +8,146 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
         <script src="https://kit.fontawesome.com/a076d05399.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="{{URL::asset('css/user.css')}}">
+        <style>
+            body {
+                background-color: #5f5f5f;
+                padding-top: 30px;
+            }
+
+            header img {
+                border-radius: 10%;
+            }
+
+            .navbar-dark {
+                background-color: #000000;
+                padding: 0;
+            }
+
+            .navbar-brand {
+                margin-left: 20px;
+                font-size: 20px;
+            }
+
+            .nav-link {
+                font-size: 15px;
+            }
+
+            #navigation .active {
+                background-color: #ffffff;
+                color: #000000;
+            }
+
+            #navigation .nav-link:hover {
+                background-color: #000080;
+                color: #ffffff;
+            }
+
+            ul {
+                list-style-type: none;
+                text-decoration: none;
+                text-align: left;
+            }
+
+            a {
+                color: #ffffff;
+            }
+
+            a:hover {
+                color: #5f5f5f;
+            }
+
+            .container {
+                margin-top: 50px;
+            }
+
+            #home {
+                padding: 20px;
+                background-color: rgba(0, 0, 128, 0.9);
+                text-align: center;
+                color: #ffffff;
+            }
+
+            #home img {
+                z-index: 1;
+            }
+
+            #home p {
+                font-size: 20px;
+            }
+
+            #home button {
+                font-size: 20px;
+                color: #ffffff;
+            }
+
+            #details {
+                text-align: center;
+                color: #ffffff;
+            }
+
+            #details #features, #details #advantages, #about div, footer {
+                padding: 20px;
+                background-color: rgba(0, 0, 128, 0.9);
+            }
+
+            #details #features, #details #advantages {
+                margin: 10px;
+            }
+
+            #details h2, #about h2, #contact-us h2 {
+                padding-top: 10px;
+                font-size: 40px;
+            }
+
+            #details p, #about p, #contact-us p {
+                padding-top: 10px;
+                font-size: 15px;
+            }
+
+            #about div {
+                margin-bottom: 20px;
+                text-align: center;
+                color: #ffffff;
+            }
+
+            footer {
+                margin-top: 50px;
+                text-align: center;
+                color: #ffffff;
+            }
+
+            #address {
+                text-align: left;
+            }
+
+            #address p {
+                padding: 0;
+            }
+
+            #quick-links h2 {
+                padding: 10px 0 0 30px;
+                font-size: 40px;
+            }
+
+            #quick-links ul {
+                text-align: center;
+            }
+
+            #new-booking h2, #booking-details h2, #admin-login h2 {
+                font-size: 40px;
+                margin: 10px 0 10px 0;
+            }
+
+            #new-booking, #booking-details, #admin-login {
+                padding: 20px;
+                background-color: rgba(0, 0, 128, 0.9);
+                text-align: center;
+                color: #ffffff;
+            }
+            label {
+                font-size: 15px;
+            }
+        </style>
     </head>
     @section('header')
     <header>
