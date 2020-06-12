@@ -145,6 +145,7 @@ class Practo extends Controller
             $item = new admin;
             $item->admin_name = 'admin';
             $item->password = Crypt::encrypt('admin@practo');
+            $item->save();
             return admin::all();
         }
         return admin::all();
