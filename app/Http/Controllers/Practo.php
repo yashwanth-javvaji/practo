@@ -50,8 +50,6 @@ class Practo extends Controller
                 $user->save();
             }
             $user = User::where(['name' => $req->input('name'), 'contact_number' => $req->input('contact_number')])->get();
-            DB::select('ALTER TABLE bookings
-            DROP CONSTRAINT IF EXISTS bookings_test_id_lab_id_unique');
             $booking = new booking;
             $booking->user_id = $user[0]->id;
             $booking->test_id = $req->input('test');
@@ -113,11 +111,12 @@ class Practo extends Controller
                         from users
                         join bookings on users.id = bookings.user_id
                         join tests on bookings.test_id = tests.id
-                        join labs on bookings.lab_id = labs.id");
+                        join labs on bookings.lab_id = labs.id
+                        order by bookings.id");
         $data = $this->paginate($items);
         return view('/bookings list', compact('data'));
     }
-    public function paginate($items, $perPage = 6, $page = null){
+    public function paginate($items, $perPage = 7, $page = null){
         $page = $page ?: (Paginator::resolveCurrentPage() ?: 1);
         $items = $items instanceof Collection ? $items : Collection::make($items);
         return new LengthAwarePaginator($items->forPage($page, $perPage), $items->count(), $perPage, $page, [
