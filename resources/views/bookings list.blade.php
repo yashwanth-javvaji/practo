@@ -75,24 +75,24 @@
             <div class="collapse navbar-collapse" id="navbar-content">
                 <ul class="navbar-nav ml-auto" align="center">
                     <li class="nav-item">
-                        <a class="nav-link" href="/#home">Home</a>
+                        <a class="nav-link" href="/#home" style="padding-left: 10px;">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/#about">About</a>
+                        <a class="nav-link" href="/#about" style="padding-left: 10px;">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/#contact-us">Contact Us</a>
+                        <a class="nav-link" href="/#contact-us" style="padding-left: 10px;">Contact Us</a>
                     </li>
                     @if(Session::get('admin'))
                     <li class="nav-item">
-                        <a class="nav-link active" href="/bookings list">Bookings List</a>
+                        <a class="nav-link active" href="/bookings list" style="padding-left: 10px;">Bookings List</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/logout">Logout</a>
+                        <a class="nav-link" href="/logout" style="padding-left: 10px;">Logout</a>
                     </li> 
                     @else
                     <li class="nav-item">
-                        <a class="nav-link" href="/admin login">Admin Login</a>
+                        <a class="nav-link" href="/admin login" style="padding-left: 10px;">Admin Login</a>
                     </li>
                     @endif
                 </ul>

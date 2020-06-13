@@ -12,24 +12,24 @@
             <div class="collapse navbar-collapse" id="navbar-content">
                 <ul class="navbar-nav ml-auto" align="center">
                     <li class="nav-item">
-                        <a class="nav-link" href="#home">Home</a>
+                        <a class="nav-link" href="#home" style="padding-left: 10px;">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#about">About</a>
+                        <a class="nav-link" href="#about" style="padding-left: 10px;">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#contact-us">Contact Us</a>
+                        <a class="nav-link" href="#contact-us" style="padding-left: 10px;">Contact Us</a>
                     </li>
                     @if(Session::get('admin'))
                     <li class="nav-item">
-                        <a class="nav-link" href="/bookings list">Bookings List</a>
+                        <a class="nav-link" href="/bookings list" style="padding-left: 10px;">Bookings List</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/logout">Logout</a>
+                        <a class="nav-link" href="/logout" style="padding-left: 10px;">Logout</a>
                     </li> 
                     @else
                     <li class="nav-item">
-                        <a class="nav-link" href="/admin login">Admin Login</a>
+                        <a class="nav-link" href="/admin login" style="padding-left: 10px;">Admin Login</a>
                     </li>
                     @endif
                 </ul>
@@ -93,7 +93,7 @@
 <div class="container" id="home">
     <div class="row justify-content-around">
         <div class="col-11 col-lg-5">
-            <img src="{{ URL::asset('images/practo.png')}}" class="img img-responsive">
+            <img src="{{ URL::asset('images/practo.png')}}" class="img img-responsive" style="width: 100%; height: auto;">
         </div>
         <div class="col-11 col-lg-6 my-auto">
             <p>
@@ -113,23 +113,23 @@
         <div class="col-11 col-md-5" id="features">
             <h2>Features</h2>
             <ul>
-                <li>Search doctors nearby</li>
-                <li>Online consultations</li>
-                <li>Book your appointments online</li>
-                <li>Setting up the reminders for the medicine</li>
-                <li>Online booking for a lab test</li>
-                <li>24/7 service</li>
+                <li><i class="fa fa-star" style="color: black;"></i> Search doctors nearby</li>
+                <li><i class="fa fa-star" style="color: black;"></i> Online consultations</li>
+                <li><i class="fa fa-star" style="color: black;"></i> Book your appointments online</li>
+                <li><i class="fa fa-star" style="color: black;"></i> Setting up the reminders for the medicine</li>
+                <li><i class="fa fa-star" style="color: black;"></i> Online booking for a lab test</li>
+                <li><i class="fa fa-star" style="color: black;"></i> 24/7 service</li>
             </ul>
         </div>
         <div class="col-11 col-md-5" id="advantages">
             <h2>Advantages</h2>
             <ul>
-                <li>No Need to Travel</li>
-                <li>Improved ways to check your symptoms</li>
-                <li>Save Your Money</li>
-                <li>Privacy and Security</li>
-                <li>Comfortable and Convenient</li>
-                <li>No Risk of Infections From the Doctor's Clinic</li>
+                <li><i class="fa fa-trophy" style="color: black;"></i> No Need to Travel</li>
+                <li><i class="fa fa-trophy" style="color: black;"></i> Improved ways to check your symptoms</li>
+                <li><i class="fa fa-trophy" style="color: black;"></i> Save Your Money</li>
+                <li><i class="fa fa-trophy" style="color: black;"></i> Privacy and Security</li>
+                <li><i class="fa fa-trophy" style="color: black;"></i> Comfortable and Convenient</li>
+                <li><i class="fa fa-trophy" style="color: black;"></i> No Risk of Infections From the Doctor's Clinic</li>
             </ul>
         </div>
     </div>

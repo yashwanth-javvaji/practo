@@ -93,10 +93,10 @@
             </div>
         </div>
         <div class="row justify-content-around" style="padding-top: 20px;">
-            <div class="col-3">
+            <div class="col-4 col-sm-3">
                 <button type="submit" class="form-control btn btn-success">Submit</button>
             </div>
-            <div class="col-3">
+            <div class="col-4 col-sm-3">
                 <a class="form-control btn btn-danger" href="/">Cancel</a>
             </div>
         </div>

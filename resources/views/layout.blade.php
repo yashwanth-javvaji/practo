@@ -162,26 +162,26 @@
               <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbar-content">
-                <ul class="navbar-nav ml-auto" align="center">
+                <ul class="navbar-nav ml-auto" style="text-align: left;">
                     <li class="nav-item">
-                        <a class="nav-link" href="/#home">Home</a>
+                        <a class="nav-link" href="/#home" style="padding-left: 10px;">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/#about">About</a>
+                        <a class="nav-link" href="/#about" style="padding-left: 10px;">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#contact-us">Contact Us</a>
+                        <a class="nav-link" href="#contact-us" style="padding-left: 10px;">Contact Us</a>
                     </li>
                     @if(Session::get('admin'))
                     <li class="nav-item">
-                        <a class="nav-link" href="/bookings list">Bookings List</a>
+                        <a class="nav-link" href="/bookings list" style="padding-left: 10px;">Bookings List</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/logout">Logout</a>
+                        <a class="nav-link" href="/logout" style="padding-left: 10px;">Logout</a>
                     </li> 
                     @else
                     <li class="nav-item">
-                        <a class="nav-link" href="/admin login">Admin Login</a>
+                        <a class="nav-link" href="/admin login" style="padding-left: 10px;">Admin Login</a>
                     </li>
                     @endif
                 </ul>
@@ -194,7 +194,7 @@
     </body>
     <footer>
         <div class="row justify-content-around">
-            <div class="col-11 col-sm-6" id="contact-us">
+            <div class="col-11" id="contact-us">
                 <h2>Contact Us</h2>
                 <p>Have questions about our products, support services, or anything else? Let us know and we&apos;ll get back to you.</p>
                 <div id="address">
@@ -212,9 +212,11 @@
                     <a href="https://www.practo.com/company/press" data-toggle="tooltip" data-placement="right" title="Latest News">Press</a>
                 </div>
             </div>
-            <div class="col-11 col-sm-5 col-md-4" id="quick-links">
+        </div>
+        <div class="row justify-content-around" id="quick-links">
+            <div class="col-6 col-sm-5 col-md-4 col-lg-3">
                 <h2>Social</h2>
-                <ul>
+                <ul style="text-align: left;">
                     <li>
                         <span class="fa-stack fa-lg">
                             <i class="fa fa-square fa-stack-2x" style="color: black;"></i>
@@ -249,9 +251,11 @@
                         </span>
                         <a href="https://github.com/practo">Github</a>
                     </li>
-                </ul>
+                </ul>    
+            </div>
+            <div class="col-8 col-sm-7 col-md-5 col-lg-4">
                 <h2>Quick Links</h2>
-                <ul>
+                <ul style="text-align: left;">
                     <li>
                         <span class="fa-stack fa-lg">
                             <i class="fa fa-square fa-stack-2x" style="color: black;"></i>
