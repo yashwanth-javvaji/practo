@@ -113,23 +113,23 @@
         <div class="col-11 col-md-5" id="features">
             <h2>Features</h2>
             <ul>
-                <li> Search doctors nearby</li>
-                <li> Online consultations</li>
-                <li> Book your appointments online</li>
-                <li> Setting up the reminders for the medicine</li>
-                <li> Online booking for a lab test</li>
-                <li> 24/7 service</li>
+                <li><i class="fa fa-star" style="color: black;"></i> Search doctors nearby</li>
+                <li><i class="fa fa-star" style="color: black;"></i> Online consultations</li>
+                <li><i class="fa fa-star" style="color: black;"></i> Book your appointments online</li>
+                <li><i class="fa fa-star" style="color: black;"></i> Setting up the reminders for the medicine</li>
+                <li><i class="fa fa-star" style="color: black;"></i> Online booking for a lab test</li>
+                <li><i class="fa fa-star" style="color: black;"></i> 24/7 service</li>
             </ul>
         </div>
         <div class="col-11 col-md-5" id="advantages">
             <h2>Advantages</h2>
             <ul>
-                <li> No Need to Travel</li>
-                <li> Improved ways to check your symptoms</li>
-                <li> Save Your Money</li>
-                <li> Privacy and Security</li>
-                <li> Comfortable and Convenient</li>
-                <li> No Risk of Infections From the Doctor's Clinic</li>
+                <li><i class="fa fa-trophy" style="color: black;"></i> No Need to Travel</li>
+                <li><i class="fa fa-trophy" style="color: black;"></i> Improved ways to check your symptoms</li>
+                <li><i class="fa fa-trophy" style="color: black;"></i> Save Your Money</li>
+                <li><i class="fa fa-trophy" style="color: black;"></i> Privacy and Security</li>
+                <li><i class="fa fa-trophy" style="color: black;"></i> Comfortable and Convenient</li>
+                <li><i class="fa fa-trophy" style="color: black;"></i> No Risk of Infections From the Doctor's Clinic</li>
             </ul>
         </div>
     </div>

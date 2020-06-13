@@ -96,20 +96,6 @@
                 margin: 10px;
             }
 
-            #details #features li:before{
-                content: "\f292";
-                font-family: FontAwesome;
-                display: inline-block;
-                color: black;
-            }
-
-            #details #advantages li:before{
-                content: "\f091";
-                font-family: FontAwesome;
-                display: inline-block;
-                color: black;
-            }
-
             #details h2, #about h2, #contact-us h2 {
                 padding-top: 10px;
                 font-size: 40px;
