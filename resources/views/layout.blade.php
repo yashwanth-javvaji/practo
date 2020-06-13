@@ -96,6 +96,20 @@
                 margin: 10px;
             }
 
+            #details #features li:before{
+                content: "\f292";
+                font-family: FontAwesome;
+                display: inline-block;
+                color: black;
+            }
+
+            #details #advantages li:before{
+                content: "\f091";
+                font-family: FontAwesome;
+                display: inline-block;
+                color: black;
+            }
+
             #details h2, #about h2, #contact-us h2 {
                 padding-top: 10px;
                 font-size: 40px;
@@ -214,7 +228,7 @@
             </div>
         </div>
         <div class="row justify-content-around" id="quick-links">
-            <div class="col-6 col-sm-5 col-md-4 col-lg-3">
+            <div class="col-8 col-sm-5 col-md-4 col-lg-3">
                 <h2>Social</h2>
                 <ul style="text-align: left;">
                     <li>
@@ -253,7 +267,7 @@
                     </li>
                 </ul>    
             </div>
-            <div class="col-8 col-sm-7 col-md-5 col-lg-4">
+            <div class="col-10 col-sm-7 col-md-5 col-lg-4">
                 <h2>Quick Links</h2>
                 <ul style="text-align: left;">
                     <li>
