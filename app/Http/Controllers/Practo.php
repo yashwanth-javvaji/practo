@@ -50,6 +50,8 @@ class Practo extends Controller
                 $user->save();
             }
             $user = User::where(['name' => $req->input('name'), 'contact_number' => $req->input('contact_number')])->get();
+            DB::select('ALTER TABLE bookings
+            DROP CONSTRAINT IF EXISTS bookings_test_id_lab_id_unique');
             $booking = new booking;
             $booking->user_id = $user[0]->id;
             $booking->test_id = $req->input('test');
