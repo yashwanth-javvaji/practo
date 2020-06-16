@@ -15,7 +15,7 @@
                     @if(Session::get('user_name'))
                         <input class="form-control" id="name" name="name" type="text" placeholder="Name" value="{{Session::get('user_name')}}">
                     @else
-                        <input class="form-control" id="name" name="name" type="text" placeholder="Name">
+                        <input class="form-control" id="name" name="name" type="text" placeholder="Name" value="{{old('name')}}">
                     @endif
                 </div>
                 @error('name')
@@ -32,7 +32,7 @@
                     @if(Session::get('contact_number'))
                         <input class="form-control" id="contact_number" name="contact_number" type="text" placeholder="Contact Number" value="{{Session::get('contact_number')}}">
                     @else
-                        <input class="form-control" id="contact_number" name="contact_number" type="text" placeholder="Contact Number">
+                        <input class="form-control" id="contact_number" name="contact_number" type="text" placeholder="Contact Number" value="{{old('contact_number')}}">
                     @endif
                 </div>
                 @error('contact_number')
@@ -48,7 +48,7 @@
                     <label for="age">Age</label>
                 </div>
                 <div class="row">
-                    <input class="form-control" id="age" name="age" type="text" placeholder="Age">
+                    <input class="form-control" id="age" name="age" type="text" placeholder="Age" value="{{old('age')}}">
                 </div>
                 @error('age')
                     <div class="row">
@@ -61,7 +61,7 @@
                     <label for="email">Email</label>
                 </div>
                 <div class="row">
-                    <input class="form-control" id="email" name="email" type="email" placeholder="Email">
+                    <input class="form-control" id="email" name="email" type="email" placeholder="Email" value="{{old('email')}}">
                 </div>
                 @error('email')
                     <div class="row">
@@ -78,20 +78,25 @@
                     </div>&emsp;&emsp;
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" id="option1" name="gender" value="male">Male
+                            <input type="radio" class="form-check-input" id="option1" name="gender" value="male" {{ (old('gender') == 'male') ? 'checked' : '' }}>Male
                         </label>
                     </div>&emsp;
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" id="option2" name="gender" value="female">Female
+                            <input type="radio" class="form-check-input" id="option2" name="gender" value="female" {{ (old('gender') == 'female') ? 'checked' : '' }}>Female
                         </label>
                     </div>&emsp;
                     <div class="form-check-inline disabled">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" id="option3" name="gender" value="other">Other
+                            <input type="radio" class="form-check-input" id="option3" name="gender" value="other" {{ (old('gender') == 'other') ? 'checked' : '' }}>Other
                         </label>
                     </div>
                 </div>
+                @error('gender')
+                    <div class="row">
+                        <span style="color: red;"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>&nbsp{{$message}}</span>
+                    </div>
+                @enderror
             </div>
         </div>
         <div class="row justify-content-around">
@@ -100,7 +105,7 @@
                     <label for="date">Select Date</label>
                 </div>
                 <div class="row">
-                    <input class="form-control" id="date" name="date" type="date">
+                    <input class="form-control" id="date" name="date" type="date" value="{{old('date')}}">
                 </div>
                 @error('date')
                     <div class="row">
@@ -114,10 +119,10 @@
                 </div>
                 <div class="row">
                     <select class="form-control" id="timeslot" name="timeslot" type="text">
-                        <option value="" selected>None</option>
-                        <option value="morning">Morning</option>
-                        <option value="afternoon">Afternoon</option>
-                        <option value="evening">Evening</option>
+                        <option value="" selected>--Select Timeslot--</option>
+                        <option value="morning" {{ (old('timeslot') == 'morning') ? 'selected' : '' }}>Morning</option>
+                        <option value="afternoon" {{ (old('timeslot') == 'afternoon') ? 'selected' : '' }}>Afternoon</option>
+                        <option value="evening" {{ (old('timeslot') == 'evening') ? 'selected' : '' }}>Evening</option>
                     </select>
                 </div>
                 @error('timeslot')
@@ -133,7 +138,7 @@
                     <label for="details">Personal Details &amp Delivery Details</label>
                 </div>
                 <div class="row">
-                    <textarea class="form-control" id="details" name="details" type="text" rows="5" style="color: black; text-align: left;"></textarea>
+                    <textarea class="form-control" id="details" name="details" type="text" rows="5" style="color: black; text-align: left;">{{old('details')}}</textarea>
                 </div>  
                 @error('details')
                     <div class="row">

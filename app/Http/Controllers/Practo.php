@@ -39,7 +39,6 @@ class Practo extends Controller
             $lab = lab::find($req->input('lab'))->lab_name;
             $test = test::find($req->input('test'))->test_name;
             Session::flash('status', "$lab does not provide $test");
-            return redirect('/new booking page');
         }
         else{
             $data = User::where(['name' => $req->input('name'), 'contact_number' => $req->input('contact_number')])->get();
@@ -67,6 +66,7 @@ class Practo extends Controller
             Session::put('contact_number', $req->input('contact_number'));
             return redirect('/booking details');
         }
+        return redirect('/new booking page')->withInput();
     }
     function booking_details(Request $req){
         $req->validate([
@@ -138,5 +138,96 @@ class Practo extends Controller
             Session::flash('delete', 'Deleted Successfully!');
         }
         return redirect('/bookings list');
+    }
+    function database(){
+        $tests = DB::select("select id, test_name from tests");
+        $labs = DB::select("select id, lab_name from labs");
+        $associations = DB::select("select tests_labs.test_id, tests_labs.lab_id, tests.test_name, labs.lab_name
+                                from tests_labs
+                                join tests on tests_labs.test_id = tests.id
+                                join labs on tests_labs.lab_id = labs.id
+                                order by tests_labs.lab_id");
+        return view('/database', compact('tests', 'labs', 'associations'));
+    }
+    function add_tests(Request $req){
+        $req->validate([
+            "test_name" => "required"
+        ]);
+        $test_name = $req->input('test_name');
+        $data = test::where(['test_name' => $test_name])->get();
+        if($data->isEmpty()){
+            $test = new test;
+            $test->test_name = $test_name;
+            $test->save();
+            Session::flash('tests_db', 'Test Added Successfully!');
+            return redirect('/database');
+        }
+        Session::flash('test', 'Test already exists!');
+        return redirect('/database')->withInput();
+    }
+    function add_labs(Request $req){
+        $req->validate([
+            "lab_name" => "required"
+        ]);
+        $lab_name = $req->input('lab_name');
+        $data = lab::where(['lab_name' => $lab_name])->get();
+        if($data->isEmpty()){
+            $lab = new lab;
+            $lab->lab_name = $req->input('lab_name');
+            $lab->save();
+            Session::flash('labs_db', 'Lab Added Successfully!');
+            return redirect('/database');
+        }
+        Session::flash('lab', 'Lab already exists!');
+        return redirect('/database')->withInput();
+    }
+    function add_associations(Request $req){
+        $req->validate([
+            "test_id" => "required",
+            "lab_id" => "required"
+        ]);
+        $test_id = $req->input('test_id');
+        $lab_id = $req->input('lab_id');
+        $data = tests_lab::where(['test_id' => $test_id, 'lab_id' => $lab_id])->get();
+        if(test::find($test_id) and lab::find($lab_id) and $data->isEmpty()){
+            $association = new tests_lab;
+            $association->test_id = $req->input('test_id');
+            $association->lab_id = $req->input('lab_id');
+            $association->save();
+            Session::flash('associations_db', 'Association Added Successfully!');
+            return redirect('/database');
+        }
+        else if(!$data->isEmpty()){
+            Session::flash('association', 'Selected Test ID and Lab ID already exists!');
+            return redirect('/database')->withInput();
+        }
+        else{
+            Session::flash('association', 'Selected Test ID or Lab ID does not exist!');
+            return redirect('/database')->withInput();
+        }
+    }
+    function delete_test($id){
+        $test = test::find($id);
+        if($test){
+            $test->delete();
+            Session::flash('tests_db', 'Test Deleted Successfully!');
+        }
+        return redirect('/database');
+    }
+    function delete_lab($id){
+        $lab = lab::find($id);
+        if($lab){
+            $lab->delete();
+            Session::flash('labs_db', 'Lab Deleted Successfully!');
+        }
+        return redirect('/database');
+    }
+    function delete_association($test_id, $lab_id){
+        $data = DB::select("select * from tests_labs where test_id = $test_id and lab_id = $lab_id");
+        if($data){
+            DB::select("delete from tests_labs where test_id = $test_id and lab_id = $lab_id");
+            Session::flash('associations_db', 'Association Deleted Successfully!');
+        }
+        return redirect('/database');
     }
 }

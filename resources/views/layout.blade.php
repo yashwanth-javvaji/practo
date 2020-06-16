@@ -177,6 +177,9 @@
                         <a class="nav-link" href="/bookings list" style="padding-left: 10px;">Bookings List</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="/database" style="padding-left: 10px;">Database</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="/logout" style="padding-left: 10px;">Logout</a>
                     </li> 
                     @else

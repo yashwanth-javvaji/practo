@@ -25,6 +25,10 @@ class AdminAuth
             Session::flash('errors', 'You need to login to access bookings list');
             return redirect('/');
         }
+        if($path == 'database' && !Session::get('admin')){
+            Session::flash('errors', 'You need to login to access database');
+            return redirect('/');
+        }
         if($path == 'logout' && !Session::get('admin')){
             Session::flash('errors', 'To access logout you need to be logged in');
             return redirect('/');
@@ -34,6 +38,10 @@ class AdminAuth
         }
         if(substr($path, 0, 6) == 'delete' && !Session::get('admin')){
             Session::flash('errors', 'To access delete you need to be logged in');
+            return redirect('/');
+        }
+        if(substr($path, 0, 3) == 'add' && !Session::get('admin')){
+            Session::flash('errors', 'To access add you need to be logged in');
             return redirect('/');
         }
         return $next($request);

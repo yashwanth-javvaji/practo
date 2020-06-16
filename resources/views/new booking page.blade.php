@@ -12,7 +12,7 @@
                     <label for="name">Name</label>
                 </div>
                 <div class="row">
-                    <input class="form-control" id="name" name="name" type="text" placeholder="Name">
+                    <input class="form-control" id="name" name="name" type="text" placeholder="Name" value="{{old('name')}}">
                 </div>
                 @error('name')
                     <div class="row">
@@ -25,7 +25,7 @@
                     <label for="contact_number">Contact Number</label>
                 </div>
                 <div class="row">
-                    <input class="form-control" id="contact_number" name="contact_number" type="text" placeholder="Contact Number">
+                    <input class="form-control" id="contact_number" name="contact_number" type="text" placeholder="Contact Number" value="{{old('contact_number')}}">
                 </div>
                 @error('contact_number')
                     <div class="row">
@@ -43,7 +43,7 @@
                     <select class="form-control" id="test" name="test" type="text">
                         <option value="" selected>None</option>
                         @foreach($tests as $test)
-                        <option value="{{$test->id}}">{{$test->test_name}}</option>
+                        <option value="{{$test->id}}" {{ (old('test') == $test->id) ? 'selected' : '' }}>{{$test->test_name}}</option>
                         @endforeach
                     </select>
                 </div>
@@ -69,14 +69,14 @@
         </div>
         <div class="row justify-content-around">
             <div class="col-11">
-                <div class="row"style="padding-top: 15px;">
+                <div class="row" style="padding-top: 15px;">
                     <label for="lab">Select Lab</label>
                 </div>
                 <div class="row">
                     <select class="form-control" id="lab" name="lab" type="text">
                         <option value="" selected>None</option>
                         @foreach($labs as $lab)
-                        <option value="{{$lab->id}}">{{$lab->lab_name}}</option>
+                        <option value="{{$lab->id}}" {{ (old('lab') == $lab->id) ? 'selected' : '' }}>{{$lab->lab_name}}</option>
                         @endforeach
                     </select>
                 </div>  

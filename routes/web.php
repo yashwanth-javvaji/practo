@@ -29,4 +29,11 @@ Route::group(['middleware'=>'web'], function(){
     Route::get('/bookings list', 'Practo@bookings_list');
     Route::get('/logout', 'Practo@logout');
     Route::get('/delete/{id}', 'Practo@delete');
+    Route::get('/database', 'Practo@database');
+    Route::post('/add_tests', 'Practo@add_tests');
+    Route::post('/add_labs', 'Practo@add_labs');
+    Route::post('/add_associations', 'Practo@add_associations');
+    Route::get('/delete_test/{id}', 'Practo@delete_test');
+    Route::get('/delete_lab/{id}', 'Practo@delete_lab');
+    Route::get('/delete_association/{test_id}&{lab_id}', 'Practo@delete_association');
 });
