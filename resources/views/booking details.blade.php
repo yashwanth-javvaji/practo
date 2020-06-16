@@ -19,7 +19,7 @@
                     @endif
                 </div>
                 @error('name')
-                    <div class="row">
+                    <div class="row" style="padding: 10px 0 0 10px;">
                         <span style="color: red;"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>&nbsp{{$message}}</span>
                     </div>
                 @enderror
@@ -36,7 +36,7 @@
                     @endif
                 </div>
                 @error('contact_number')
-                    <div class="row">
+                    <div class="row" style="padding: 10px 0 0 10px;">
                         <span style="color: red;"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>&nbsp{{$message}}</span>
                     </div>
                 @enderror
@@ -51,7 +51,7 @@
                     <input class="form-control" id="age" name="age" type="text" placeholder="Age" value="{{old('age')}}">
                 </div>
                 @error('age')
-                    <div class="row">
+                    <div class="row" style="padding: 10px 0 0 10px;">
                         <span style="color: red;"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>&nbsp{{$message}}</span>
                     </div>
                 @enderror
@@ -64,7 +64,7 @@
                     <input class="form-control" id="email" name="email" type="email" placeholder="Email" value="{{old('email')}}">
                 </div>
                 @error('email')
-                    <div class="row">
+                    <div class="row" style="padding: 10px 0 0 10px;">
                         <span style="color: red;"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>&nbsp{{$message}}</span>
                     </div>
                 @enderror
@@ -93,7 +93,7 @@
                     </div>
                 </div>
                 @error('gender')
-                    <div class="row">
+                    <div class="row" style="padding: 10px 0 0 10px;">
                         <span style="color: red;"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>&nbsp{{$message}}</span>
                     </div>
                 @enderror
@@ -108,7 +108,7 @@
                     <input class="form-control" id="date" name="date" type="date" value="{{old('date')}}">
                 </div>
                 @error('date')
-                    <div class="row">
+                    <div class="row" style="padding: 10px 0 0 10px;">
                         <span style="color: red;"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>&nbsp{{$message}}</span>
                     </div>
                 @enderror
@@ -126,7 +126,7 @@
                     </select>
                 </div>
                 @error('timeslot')
-                    <div class="row">
+                    <div class="row" style="padding: 10px 0 0 10px;">
                         <span style="color: red;"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>&nbsp{{$message}}</span>
                     </div>
                 @enderror
@@ -141,7 +141,7 @@
                     <textarea class="form-control" id="details" name="details" type="text" rows="5" style="color: black; text-align: left;">{{old('details')}}</textarea>
                 </div>  
                 @error('details')
-                    <div class="row">
+                    <div class="row" style="padding: 10px 0 0 10px;">
                         <span style="color: red;"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>&nbsp{{$message}}</span>
                     </div>
                 @enderror  

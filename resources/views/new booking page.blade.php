@@ -15,7 +15,7 @@
                     <input class="form-control" id="name" name="name" type="text" placeholder="Name" value="{{old('name')}}">
                 </div>
                 @error('name')
-                    <div class="row">
+                    <div class="row" style="padding: 10px 0 0 10px;">
                         <span style="color: red;"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>&nbsp{{$message}}</span>
                     </div>
                 @enderror
@@ -28,7 +28,7 @@
                     <input class="form-control" id="contact_number" name="contact_number" type="text" placeholder="Contact Number" value="{{old('contact_number')}}">
                 </div>
                 @error('contact_number')
-                    <div class="row">
+                    <div class="row" style="padding: 10px 0 0 10px;">
                         <span style="color: red;"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>&nbsp{{$message}}</span>
                     </div>
                 @enderror
@@ -48,7 +48,7 @@
                     </select>
                 </div>
                 @error('test')
-                    <div class="row">
+                    <div class="row" style="padding: 10px 0 0 10px;">
                         <span style="color: red;"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>&nbsp{{$message}}</span>
                     </div>
                 @enderror
@@ -61,7 +61,7 @@
                     <input class="form-control" id="prescription" name="prescription" type="file">
                 </div>
                 @error('prescription')
-                    <div class="row">
+                    <div class="row" style="padding: 10px 0 0 10px;">
                         <span style="color: red;"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>&nbsp{{$message}}</span>
                     </div>
                 @enderror
@@ -81,12 +81,12 @@
                     </select>
                 </div>  
                 @error('lab')
-                    <div class="row">
+                    <div class="row" style="padding: 10px 0 0 10px;">
                         <span style="color: red;"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>&nbsp{{$message}}</span>
                     </div>
                 @enderror
                 @if(Session::get('status'))
-                    <div class="row">
+                    <div class="row" style="padding: 10px 0 0 10px;">
                         <span style="color: red;"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>&nbsp{{Session::get('status')}}</span>
                     </div>
                 @endif 

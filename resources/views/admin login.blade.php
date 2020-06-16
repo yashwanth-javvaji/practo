@@ -68,7 +68,7 @@
                     <input class="form-control" id="admin_name" name="admin_name" type="text" placeholder="Admin Name">
                 </div>
                 @error('admin_name')
-                    <div class="row">
+                    <div class="row" style="padding: 10px 0 0 10px;">
                         <span style="color: red;"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>&nbsp{{$message}}</span>
                     </div>
                 @enderror
@@ -81,7 +81,7 @@
                     <input class="form-control" id="password" name="password" type="password" placeholder="Password">
                 </div>
                 @error('password')
-                    <div class="row">
+                    <div class="row" style="padding: 10px 0 0 10px;">
                         <span style="color: red;"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>&nbsp{{$message}}</span>
                     </div>
                 @enderror
