@@ -230,4 +230,96 @@ class Practo extends Controller
         }
         return redirect('/database');
     }
+    function edit($id){
+        $tests = test::all();
+        $labs = lab::all();
+        $data = DB::select("select B.user_id, U.name, U.email, U.contact_number, U.age, U.gender, U.address, B.id, T.test_name, L.lab_name,
+                            B.selected_date, B.timeslot  
+                            from bookings B
+                            join users U on B.user_id = U.id
+                            join tests T on B.test_id = T.id
+                            join labs L on B.lab_id = L.id");
+        return view('/edit', ['tests' => $tests, 'labs' => $labs, 'data' => $data]);
+    }
+    function users_details(Request $req){
+        $req->validate([
+            "name" => "required",
+            "contact_number" => "required|digits:10",
+            "age" => "required|numeric|max:100",
+            "email" => "required|email",
+            "gender" => "required|in:male,female,other",
+            "details" => "required|max:209",
+        ]);
+        $user = user::find($req->input('user_id'));
+        $user->name = $req->input('name');
+        $user->contact_number = $req->input('contact_number');
+        $user->age = $req->input('age');
+        $user->email = $req->input('email');
+        $user->gender = $req->input('gender');
+        $user->address = $req->input('details');
+        $user->save();
+        Session::flash('edit', 'Data Changed Successfully!');
+        return redirect('/bookings list');
+    }
+    function bookings_details(Request $req){
+        $req->validate([
+            "test" => "required",
+            "lab" => "required",
+            "prescription" => "max:2048",
+            "date" => "required|date|after:today",
+            "timeslot" => "required",
+        ]);
+        $booking = booking::find($req->input('booking_id'));
+        $booking->test_id = $req->input('test');
+        $booking->lab_id = $req->input('lab');
+        if($req->file('prescription')){
+            $booking->prescription = $req->file('prescription');
+            $file = $req->file('prescription');
+            $extension = $file->getClientOriginalExtension();
+            $filename = $booking->user_id.'_'.time().'.'.$extension;
+            $file->move('uploads', $filename);
+            $booking->file_name = $filename;
+        }
+        $booking->selected_date = $req->input('date');
+        $booking->timeslot = $req->input('timeslot');    
+        $booking->save();
+        Session::flash('edit', 'Data Changed Successfully!');
+        return redirect('/bookings list');
+    }
+    function edit_test(Request $req){
+        $req->validate([
+            "test" => "required",
+        ]);
+        $test_id = $req->input('test_id');
+        $test_name = $req->input('test');
+        $data = DB::select("select test_name from tests where id != $test_id and test_name = '$test_name'");
+        if($data){
+            Session::flash('tests_error', 'Test Alredy Exists!');
+            return redirect('/database');
+        }
+        $test = test::find($test_id);
+        $test->test_name = $test_name;
+        $test->save();
+        Session::forget('test_id');
+        Session::flash('tests_db', 'Data Changed Successfully!');
+        return redirect('/database');
+    }
+    function edit_lab(Request $req){
+        $req->validate([
+            "lab" => "required",
+        ]);
+        $lab_id = $req->input('lab_id');
+        $lab_name = $req->input('lab');
+        $data = DB::select("select lab_name from labs where id != $lab_id and lab_name = '$lab_name'");
+        if($data){
+            Session::flash('labs_error', 'Lab Alredy Exists!');
+            return redirect('/database');
+        }
+        $lab = lab::find($lab_id);
+        $lab->lab_name = $lab_name;
+        $lab->save();
+        Session::forget('lab_id');
+        Session::flash('labs_db', 'Data Changed Successfully!');
+        return redirect('/database');
+    }
 }

@@ -44,6 +44,10 @@ class AdminAuth
             Session::flash('errors', 'To access add you need to be logged in');
             return redirect('/');
         }
+        if(substr($path, 0, 4) == 'edit' && !Session::get('admin')){
+            Session::flash('errors', 'To access edit you need to be logged in');
+            return redirect('/');
+        }
         return $next($request);
     }
 }

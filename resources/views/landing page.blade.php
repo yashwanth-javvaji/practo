@@ -62,13 +62,13 @@
         </ol>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img class="d-block img-fluid mx-auto" src="{{ URL::asset('images/slide 1.jpg')}}">
+                <img class="d-block img-fluid mx-auto rounded" src="{{ URL::asset('images/slide 1.png')}}">
             </div>
             <div class="carousel-item">
-                <img class="d-block img-fluid mx-auto" src="{{ URL::asset('images/slide 2.jpg')}}">
+                <img class="d-block img-fluid mx-auto rounded" src="{{ URL::asset('images/slide 2.png')}}">
             </div>
             <div class="carousel-item">
-                <img class="d-block img-fluid mx-auto" src="{{ URL::asset('images/slide 3.jpg')}}">
+                <img class="d-block img-fluid mx-auto rounded" src="{{ URL::asset('images/slide 3.png')}}">
             </div>
         </div>
         <a href="#main-carousel" class="carousel-control-prev" data-slide="prev">
@@ -93,20 +93,16 @@
         </div>
     @endif
 </div>
-<div class="container" id="home">
-    <div class="row justify-content-around">
-        <div class="col-11 col-lg-5">
-            <img src="{{ URL::asset('images/practo.png')}}" class="img img-responsive" style="width: 100%; height: auto;">
+<div class="container">
+    <div class="row justify-content-around" id="home">
+        <div class="col-sm-12 col-md-5" id="practo">
+            <img src="{{ URL::asset('images/practo.png')}}" class="my-auto img img-responsive" style="width: 100%; height: auto; position: absolute; top: 0; bottom: 0; left: 0; right: 0; margin: auto;">
         </div>
-        <div class="col-11 col-lg-6 my-auto">
+        <div class="col-sm-12 col-md-7" style="padding: 20px;">
             <p>
                 Introducing Video Consultations.<br>
                 Don&apos;t delay your health concerns.
             </p>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col">
             <button class="btn btn-success" onclick="location.href='/new booking page';">Book a Diagnostic Test</button>
         </div>
     </div>

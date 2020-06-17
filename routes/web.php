@@ -36,4 +36,17 @@ Route::group(['middleware'=>'web'], function(){
     Route::get('/delete_test/{id}', 'Practo@delete_test');
     Route::get('/delete_lab/{id}', 'Practo@delete_lab');
     Route::get('/delete_association/{test_id}&{lab_id}', 'Practo@delete_association');
+    Route::get('/edit/{id}', 'Practo@edit');
+    Route::post('edit/users_details', 'Practo@users_details');
+    Route::post('edit/bookings_details', 'Practo@bookings_details');
+    Route::get('/edit_test/{id}', function($id){
+        Session::put('test_id', $id);
+        return redirect('/database');
+    });
+    Route::post('/edit_test', 'Practo@edit_test');
+    Route::get('/edit_lab/{id}', function($id){
+        Session::put('lab_id', $id);
+        return redirect('/database');
+    });
+    Route::post('/edit_lab', 'Practo@edit_lab');
 });

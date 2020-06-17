@@ -140,21 +140,58 @@
                             </div>
                         </div>
                     @endif
+                    @if(Session::get('tests_error'))
+                        <div class="row justify-content-around">
+                            <div class="col-11 alert alert-danger alert-dismissible fade show" role="alert">
+                                <strong>{{Session::get('tests_error')}}</strong>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        </div>
+                    @endif
+                    @error('test')
+                    <div class="row justify-content-around">
+                        <div class="col-11 alert alert-danger alert-dismissible fade show" role="alert">
+                            <strong>{{$message}}</strong>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    </div>
+                    @enderror
                     <h2>Tests</h2>
                     <table class="table table-responsive-xs">
                         <thead class="thead-dark">
                             <tr>
                                 <th scope="col">Test ID</th>
                                 <th scope="col">Test Name</th>
-                                <th scope="col">Delete</th>
+                                <th scope="col">Operation</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach($tests as $item)
                             <tr>
+                                <form method="post" action="edit_test">
+                                @csrf
                                 <td>{{$item->id}}</td>
-                                <td>{{$item->test_name}}</td>
-                                <td><a href="/delete_test/{{$item->id}}"><i class="fa fa-trash" style="color: red;"></i></a></td>
+                                <td>
+                                    @if(Session::get('test_id') and (Session::get('test_id') == $item->id))
+                                    <input class="form-control" type="hidden" name="test_id" value="{{$item->id}}">
+                                    <input class="form-control" type="text" name="test" value="{{$item->test_name}}">
+                                    @else
+                                    {{$item->test_name}}
+                                    @endif
+                                </td>
+                                <td>
+                                    @if(Session::get('test_id') and (Session::get('test_id') == $item->id))
+                                    <button type="submit" class="form-control btn btn-success">Save</button>
+                                    @else
+                                    <a href="/edit_test/{{$item->id}}"><i class="fa fa-edit" style="color: black;"></i></a>
+                                    <a href="/delete_test/{{$item->id}}"><i class="fa fa-trash" style="color: red;"></i></a>
+                                    @endif
+                                </td>
+                                </form>
                             </tr>
                             @endforeach
                         </tbody>
@@ -198,21 +235,58 @@
                             </div>
                         </div>
                     @endif
+                    @if(Session::get('labs_error'))
+                        <div class="row justify-content-around">
+                            <div class="col-11 alert alert-danger alert-dismissible fade show" role="alert">
+                                <strong>{{Session::get('labs_error')}}</strong>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        </div>
+                    @endif
+                    @error('lab')
+                    <div class="row justify-content-around">
+                        <div class="col-11 alert alert-danger alert-dismissible fade show" role="alert">
+                            <strong>{{$message}}</strong>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    </div>
+                    @enderror
                     <h2>Labs</h2>
                     <table class="table table-responsive-xs">
                         <thead class="thead-dark">
                             <tr>
                                 <th scope="col">Lab ID</th>
                                 <th scope="col">Lab Name</th>
-                                <th scope="col">Delete</th>
+                                <th scope="col">Operation</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach($labs as $item)
                             <tr>
+                                <form method="post" action="edit_lab">
+                                @csrf
                                 <td>{{$item->id}}</td>
-                                <td>{{$item->lab_name}}</td>
-                                <td><a href="/delete_lab/{{$item->id}}"><i class="fa fa-trash" style="color: red;"></i></a></td>
+                                <td>
+                                    @if(Session::get('lab_id') and (Session::get('lab_id') == $item->id))
+                                    <input class="form-control" type="hidden" name="lab_id" value="{{$item->id}}">
+                                    <input class="form-control" type="text" name="lab" value="{{$item->lab_name}}">
+                                    @else
+                                    {{$item->lab_name}}
+                                    @endif
+                                </td>
+                                <td>
+                                    @if(Session::get('lab_id') and (Session::get('lab_id') == $item->id))
+                                    <button type="submit" class="form-control btn btn-success">Save</button>
+                                    @else
+                                    <a href="/edit_lab/{{$item->id}}"><i class="fa fa-edit" style="color: black;"></i></a>
+                                    <a href="/delete_lab/{{$item->id}}"><i class="fa fa-trash" style="color: red;"></i></a>
+                                    @endif
+                                </td>
+                                </form>
                             </tr>
                             @endforeach
                         </tbody>

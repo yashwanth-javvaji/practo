@@ -114,6 +114,16 @@
                     </div>
                 </div>
             @endif
+            @if(Session::get('edit'))
+                <div class="row justify-content-around">
+                    <div class="col-11 alert alert-success alert-dismissible fade show" role="alert">
+                        <strong>{{Session::get('edit')}}</strong>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                </div>
+            @endif
         </div>
         <div class="container" id="booking-list">
             <table class="table table-responsive-md">
@@ -130,7 +140,7 @@
                         <th scope="col">Lab</th>
                         <th scope="col">Date</th>
                         <th scope="col">Timeslot</th>
-                        <th scope="col">Delete</th>
+                        <th scope="col">Operation</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -147,7 +157,10 @@
                         <td>{{$item->lab_name}}</td>
                         <td>{{$item->selected_date}}</td>
                         <td>{{$item->timeslot}}</td>
-                        <td><a href="/delete/{{$item->id}}"><i class="fa fa-trash" style="color: red;"></i></a></td>
+                        <td>
+                            <a href="/edit/{{$item->id}}"><i class="fa fa-edit" style="color: black;"></i></a>
+                            <a href="/delete/{{$item->id}}"><i class="fa fa-trash" style="color: red;"></i></a>
+                        </td>
                     </tr>
                     @endforeach
                 </tbody>

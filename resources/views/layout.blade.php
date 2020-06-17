@@ -12,8 +12,11 @@
         type="image/x-icon">
         <style>
             body {
-                background-color: #5f5f5f;
-                padding-top: 30px;
+                background-color: #ffffff;
+            }
+
+            div {
+                margin: 0;
             }
 
             header img {
@@ -63,23 +66,32 @@
             }
 
             #home {
-                padding: 20px;
-                background-color: rgba(0, 0, 128, 0.9);
+                margin: 10px;
+                border-radius: 10px;
                 text-align: center;
                 color: #ffffff;
             }
 
-            #home img {
-                z-index: 1;
-            }
-
             #home p {
                 font-size: 20px;
+                color: #000000;
             }
 
             #home button {
                 font-size: 20px;
                 color: #ffffff;
+            }
+
+            #practo {
+                background-color: rgba(0, 0, 128, 0.9);
+                border-radius: 10px 0 0 10px;
+            }
+
+            @media only screen and (max-width: 768px) {
+                #practo {
+                    height: 150px;
+                    border-radius: 10px 10px 0 0;
+                }
             }
 
             #details {
@@ -146,8 +158,13 @@
                 text-align: center;
                 color: #ffffff;
             }
+
             label {
                 font-size: 15px;
+            }
+
+            button, #home {
+                box-shadow: 5px 5px 10px #5f5f5f;
             }
         </style>
     </head>
