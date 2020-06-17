@@ -361,7 +361,7 @@
                             <form method="post" action="add_associations">
                                 @csrf
                                 <div class="row justify-content-around">
-                                    <div class="col-4">
+                                    <div class="col-3">
                                         <div class="row">
                                             <input class="form-control" id="test_id" name="test_id" type="text" placeholder="Test ID" value="{{old('test_id')}}">
                                         </div>
@@ -371,7 +371,7 @@
                                             </div>
                                         @enderror
                                     </div>
-                                    <div class="col-4">
+                                    <div class="col-3">
                                         <div class="row">
                                             <input class="form-control" id="lab_id" name="lab_id" type="text" placeholder="Lab ID" value="{{old('lab_id')}}">
                                         </div>
@@ -381,7 +381,7 @@
                                             </div>
                                         @enderror
                                     </div>
-                                    <div class="col-3">
+                                    <div class="col-5">
                                         <button class="form-control btn btn-success" type="submit">Add</button>
                                     </div>
                                 </div>
