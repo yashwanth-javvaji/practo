@@ -140,13 +140,13 @@ class Practo extends Controller
         return redirect('/bookings list');
     }
     function database(){
-        $tests = DB::select("select id, test_name from tests");
-        $labs = DB::select("select id, lab_name from labs");
+        $tests = DB::select("select id, test_name from tests order by id");
+        $labs = DB::select("select id, lab_name from labs order by id");
         $associations = DB::select("select tests_labs.test_id, tests_labs.lab_id, tests.test_name, labs.lab_name
                                 from tests_labs
                                 join tests on tests_labs.test_id = tests.id
                                 join labs on tests_labs.lab_id = labs.id
-                                order by tests_labs.lab_id");
+                                order by tests_labs.lab_id, tests_labs.test_id");
         return view('/database', compact('tests', 'labs', 'associations'));
     }
     function add_tests(Request $req){
