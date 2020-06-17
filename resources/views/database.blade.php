@@ -334,7 +334,7 @@
                         </div>
                     @endif
                     <h2>Tests-Labs Association</h2>
-                    <table class="table table-responsive-xs">
+                    <table class="table table-responsive-md">
                         <thead class="thead-dark">
                             <tr>
                                 <th scope="col">Test ID</th>
