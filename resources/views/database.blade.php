@@ -71,7 +71,8 @@
             }
 
             tr:hover {
-                background-color: rgba(0, 128, 0, 0.9);
+                background-color: rgba(255, 255, 0, 0.9);
+                color: #000000;
             }
 
             tbody {
