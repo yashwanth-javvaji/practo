@@ -22,8 +22,8 @@ class Practo extends Controller
 {
     //
     function new_booking_page(){
-        $tests = test::all();
-        $labs = lab::all();
+        $tests = DB::select("select id, test_name from tests order by id");
+        $labs = DB::select("select id, lab_name from labs order by id");
         return view('/new booking page', ['tests' => $tests, 'labs' => $labs]);
     }
     function new_booking(Request $req){
@@ -231,8 +231,8 @@ class Practo extends Controller
         return redirect('/database');
     }
     function edit($id){
-        $tests = test::all();
-        $labs = lab::all();
+        $tests = DB::select("select id, test_name from tests order by id");
+        $labs = DB::select("select id, lab_name from labs order by id");
         $data = DB::select("select B.user_id, U.name, U.email, U.contact_number, U.age, U.gender, U.address, B.id, T.test_name, L.lab_name,
                             B.selected_date, B.timeslot  
                             from bookings B
