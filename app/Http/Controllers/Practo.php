@@ -184,17 +184,16 @@ class Practo extends Controller
     }
     function add_associations(Request $req){
         $req->validate([
-            "test_id" => "required",
-            "lab_id" => "required"
+            "test_id" => "required|numeric",
+            "lab_id" => "required|numeric"
         ]);
         $test_id = $req->input('test_id');
         $lab_id = $req->input('lab_id');
         $data = tests_lab::where(['test_id' => $test_id, 'lab_id' => $lab_id])->get();
         if(test::find($test_id) and lab::find($lab_id) and $data->isEmpty()){
-            $association = new tests_lab;
-            $association->test_id = $req->input('test_id');
-            $association->lab_id = $req->input('lab_id');
-            $association->save();
+            $test_id = $req->input('test_id');
+            $lab_id = $req->input('lab_id');
+            DB::select("insert into tests_labs(test_id, lab_id) values($test_id, $lab_id)");
             Session::flash('associations_db', 'Association Added Successfully!');
             return redirect('/database');
         }
