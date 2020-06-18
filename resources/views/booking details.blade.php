@@ -73,13 +73,12 @@
         </div>
         <div class="row justify-content-around" style="padding-top: 20px;">
             <div class="col-11">
-                <div class="row justify-content-around my-auto">
-                    <div class="col-4">
+                <div class="row">
                     <div class="form-check-inline">
                         <label class="form-check-label">Gender</label>
-                    </div>&nbsp;
                     </div>
-                    <div class="col-7">
+                </div>
+                    <div class="row">
                     <div class="form-check-inline">
                         <label class="form-check-label">
                             <input type="radio" class="form-check-input" id="option1" name="gender" value="male" {{ (old('gender') == 'male') ? 'checked' : '' }}>Male
@@ -94,7 +93,6 @@
                         <label class="form-check-label">
                             <input type="radio" class="form-check-input" id="option3" name="gender" value="other" {{ (old('gender') == 'other') ? 'checked' : '' }}>Other
                         </label>
-                    </div>
                     </div>
                 </div>
                 @error('gender')
