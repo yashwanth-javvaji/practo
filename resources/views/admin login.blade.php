@@ -53,7 +53,8 @@
         </div>
     @endif
 </div>
-<div class="container glossy" id="admin-login">
+<div class="container">
+    <div class="glossy" id="admin-login">
     <form method="post" action="admin_login">
         @csrf
         <div>
@@ -96,5 +97,6 @@
             </div>
         </div>
     </form>
+    </div>
 </div>
 @endsection

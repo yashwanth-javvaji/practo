@@ -1,6 +1,7 @@
 @extends('layout')
 @section('content')
-<div class="container glossy" id="booking-details">
+<div class="container">
+    <div class="glossy" id="booking-details">
     <form method="post" action="new_booking" enctype="multipart/form-data">
         @csrf
         <div>
@@ -101,5 +102,6 @@
             </div>
         </div>
     </form>
+    </div>
 </div>
 @endsection
