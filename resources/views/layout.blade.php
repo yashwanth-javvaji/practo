@@ -380,16 +380,11 @@
         </div>
     </footer>
     <script>
-        $('textarea').val($('textarea').val().trim());
         $('.navbar-nav>li>a').on('click', function(){
             $('.navbar-collapse').collapse('hide');
         });
         $(document).click(function (event) {
             $('.navbar-collapse').collapse('hide');
-        });
-        $('textarea').on('keyup paste', function(){
-            var text = $(this).val();
-            $(this).val(text.trimLeft());
         });
     </script>
 </html>
