@@ -386,5 +386,9 @@
         $(document).click(function (event) {
             $('.navbar-collapse').collapse('hide');
         });
+        $('textarea').on('keyup paste', function(){
+            var text = $(this).val();
+            $(this).val(text.trimLeft());
+        });
     </script>
 </html>
