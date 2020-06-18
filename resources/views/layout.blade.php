@@ -380,11 +380,14 @@
         </div>
     </footer>
     <script>
+        $(document).ready(function() {
+        $('textarea').val($('textarea').val().trim());
         $('.navbar-nav>li>a').on('click', function(){
             $('.navbar-collapse').collapse('hide');
         });
         $(document).click(function (event) {
             $('.navbar-collapse').collapse('hide');
         });
+    });
     </script>
 </html>
