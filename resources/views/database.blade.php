@@ -109,13 +109,13 @@
             .glossy {
                 border-radius: 10px;
                 background: #94c4fe;
-                background: -webkit-gradient(linear, left top, left bottom, color-stop(25%,#00a000), color-stop(100%,#a00000));
-                background: -webkit-linear-gradient(top,  #00a000 25%,#a00000 100%);
-                background: -moz-linear-gradient(top,  #00a000 25%, #a00000 100%);
-                background: -o-linear-gradient(top,  #00a000 25%,#a00000 100%);
-                background: -ms-linear-gradient(top, #00a000 25%,#a00000 100%);
-                background: linear-gradient(to bottom, #00a000 25%,#a00000 100%);
-                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00a000', endColorstr='#a00000',GradientType=0 );
+                background: -webkit-gradient(linear, left top, left bottom, color-stop(25%,#ff0000), color-stop(100%,#00ff00));
+                background: -webkit-linear-gradient(top,  #ff0000 25%,#00ff00 100%);
+                background: -moz-linear-gradient(top,  #ff0000 25%, #00ff00 100%);
+                background: -o-linear-gradient(top,  #ff0000 25%,#00ff00 100%);
+                background: -ms-linear-gradient(top, #ff0000 25%,#00ff00 100%);
+                background: linear-gradient(to bottom, #ff0000 25%,#00ff00 100%);
+                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff0000', endColorstr='#00ff00',GradientType=0 );
                 border: 1px solid #4864a9;
                 text-shadow: 1px 1px 0px #5f5f5f;
                 -webkit-box-shadow:  5px 5px 10px #5f5f5f;    
@@ -263,7 +263,7 @@
                                         @enderror
                                     </div>
                                     <div class="col-4">
-                                        <button class="form-control btn btn-success" type="submit">Add</button>
+                                        <button class="form-control btn btn-primary" type="submit">Add</button>
                                     </div>
                                 </div>
                                 @if(Session::get('test'))
@@ -358,7 +358,7 @@
                                         @enderror
                                     </div>
                                     <div class="col-4">
-                                        <button class="form-control btn btn-success" type="submit">Add</button>
+                                        <button class="form-control btn btn-primary" type="submit">Add</button>
                                     </div>
                                 </div>
                                 @if(Session::get('lab'))
@@ -428,7 +428,7 @@
                                         @enderror
                                     </div>
                                     <div class="col-5">
-                                        <button class="form-control btn btn-success" type="submit">Add</button>
+                                        <button class="form-control btn btn-primary" type="submit">Add</button>
                                     </div>
                                 </div>
                                 @if(Session::get('association'))
