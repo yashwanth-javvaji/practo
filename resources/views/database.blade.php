@@ -392,9 +392,6 @@
                                 <th scope="col">Lab ID</th>
                                 <th scope="col">Lab Name</th>
                                 <th scope="col">Delete</th>
-                                <th scope="col">#</th>
-                                <th scope="col">#</th>
-                                <th scope="col">#</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -405,9 +402,6 @@
                                 <td>{{$item->lab_id}}</td>
                                 <td>{{$item->lab_name}}</td>
                                 <td><a href="/delete_association/{{$item->test_id}}&amp;{{$item->lab_id}}"><i class="fa fa-trash" style="color: red;"></i></a></td>
-                                <td>hello world</td>
-                                <td>hello world</td>
-                                <td>hello world</td>
                             </tr>
                             @endforeach
                         </tbody>
