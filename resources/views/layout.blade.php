@@ -252,7 +252,7 @@
             <div class="collapse navbar-collapse" id="navbar-content">
                 <ul class="navbar-nav ml-auto" style="text-align: left;">
                     <li class="nav-item">
-                        <a class="nav-link" href="/#home" style="padding-left: 10px;">Home</a>
+                        <a class="nav-link" href="/" style="padding-left: 10px;">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/#about" style="padding-left: 10px;">About</a>
@@ -352,7 +352,7 @@
                             <i class="fa fa-square fa-stack-2x" style="color: black;"></i>
                             <i class="fa fa-home fa-stack-1x fa-inverse"></i>
                         </span>
-                        <a href="/#home">Home</a>
+                        <a href="/">Home</a>
                     </li>
                     <li>
                         <span class="fa-stack fa-lg">
@@ -380,14 +380,18 @@
         </div>
     </footer>
     <script>
-        $(document).ready(function() {
         $('textarea').val($('textarea').val().trim());
-        $('.navbar-nav>li>a').on('click', function(){
-            $('.navbar-collapse').collapse('hide');
+        $(document).ready(function() {
+            $('.navbar-nav>li>a').on('click', function(){
+                $('.navbar-collapse').collapse('hide');
+            });
+            $(document).click(function (event) {
+                $('.navbar-collapse').collapse('hide');
+            });
+            $('textarea').on('keyup paste', function(){
+                var text = $(this).val();
+                $(this).val(text.trimLeft());
+            });
         });
-        $(document).click(function (event) {
-            $('.navbar-collapse').collapse('hide');
-        });
-    });
     </script>
 </html>
