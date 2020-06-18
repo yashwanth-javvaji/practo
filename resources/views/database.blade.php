@@ -75,13 +75,13 @@
                 color: #000000;
             }
 
-            .table-fixed tbody {
+            tbody {
                 display: block;
                 max-height: 250px;
                 overflow-y: auto;
             }
 
-            .table-fixed thead, .table-fixed tbody tr {
+            thead, tbody tr {
                 display: table;
                 width: 100%;
                 table-layout: fixed;
@@ -212,7 +212,7 @@
                     </div>
                     @enderror
                     <h2>Tests</h2>
-                    <table class="table table-fixed table-responsive">
+                    <table class="table table-responsive">
                         <thead class="thead-dark">
                             <tr>
                                 <th scope="col">Test ID</th>
@@ -307,7 +307,7 @@
                     </div>
                     @enderror
                     <h2>Labs</h2>
-                    <table class="table table-fixed table-responsive">
+                    <table class="table table-responsive">
                         <thead class="thead-dark">
                             <tr>
                                 <th scope="col">Lab ID</th>
@@ -384,12 +384,10 @@
                         </div>
                     @endif
                     <h2>Tests-Labs Association</h2>
-                    <table class="table table-fixed table-responsive">
+                    <table class="table table-responsive">
                         <thead class="thead-dark">
                             <tr>
-                                <th scope="col">Test ID</th>
                                 <th scope="col">Test Name</th>
-                                <th scope="col">Lab ID</th>
                                 <th scope="col">Lab Name</th>
                                 <th scope="col">Delete</th>
                             </tr>
@@ -397,9 +395,7 @@
                         <tbody>
                             @foreach($associations as $item)
                             <tr>
-                                <td>{{$item->test_id}}</td>
                                 <td>{{$item->test_name}}</td>
-                                <td>{{$item->lab_id}}</td>
                                 <td>{{$item->lab_name}}</td>
                                 <td><a href="/delete_association/{{$item->test_id}}&amp;{{$item->lab_id}}"><i class="fa fa-trash" style="color: red;"></i></a></td>
                             </tr>
