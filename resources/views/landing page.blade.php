@@ -109,7 +109,7 @@
 </div>
 <div class="container" id="details">
     <div class="row justify-content-around">
-        <div class="col-11 col-md-5 glossy" id="features">
+        <div class="col-11 col-md-5 glossy" id="features" style="margin-bottom: 50px;">
             <img src="{{ URL::asset('images/features.png')}}" id="icon">
             <h2>Features</h2>
             <ul>
@@ -121,7 +121,7 @@
                 <li><i class="fa fa-star" style="color: black;"></i> 24/7 service</li>
             </ul>
         </div>
-        <div class="col-11 col-md-5 glossy" id="advantages">
+        <div class="col-11 col-md-5 glossy" id="advantages" style="margin-bottom: 50px;">
         <img src="{{ URL::asset('images/advantages.png')}}" id="icon">
             <h2>Advantages</h2>
             <ul>
@@ -135,7 +135,7 @@
         </div>
     </div>
 </div>
-<div class="container" id="about">
+<div class="container" id="about" style="margin-top: 0;">
     <div class="glossy">
         <h2>Your home for health</h2>
         <p>
