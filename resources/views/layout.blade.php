@@ -344,7 +344,7 @@
                     </li>
                 </ul>    
             </div>
-            <div class="col-10 col-sm-7 col-md-5 col-lg-4">
+            <div class="col-12 col-sm-7 col-md-5 col-lg-4">
                 <h2>Quick Links</h2>
                 <ul style="text-align: left;">
                     <li>
