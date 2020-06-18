@@ -53,7 +53,7 @@
         </div>
     @endif
 </div>
-<div class="container" id="admin-login">
+<div class="container glossy" id="admin-login">
     <form method="post" action="admin_login">
         @csrf
         <div>

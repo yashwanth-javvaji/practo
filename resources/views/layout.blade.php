@@ -58,7 +58,7 @@
             }
 
             a:hover {
-                color: #5f5f5f;
+                color: #ffff00;
             }
 
             .container {
@@ -74,7 +74,6 @@
 
             #home p {
                 font-size: 20px;
-                color: #000000;
             }
 
             #home button {
@@ -163,8 +162,80 @@
                 font-size: 15px;
             }
 
-            button, #home {
+            #home {
                 box-shadow: 5px 5px 10px #5f5f5f;
+            }
+
+            .btn {
+                box-shadow: 3px 3px 6px #5f5f5f;
+            }
+
+            .form-control:hover {
+                box-shadow: 3px 3px 6px #ff0000;
+            }
+
+            .form-control:focus {
+                box-shadow: 3px 3px 6px #00ff00;
+            }
+
+            .btn:hover {
+                box-shadow: 5px 5px 10px #5f5f5f;
+                transform:scale(1.2,1.2);
+                -webkit-transform:scale(1.2,1.2);
+                -moz-transform:scale(1.2,1.2);
+            }
+
+            #features, #advantages {
+                position: relative;
+                top: 15px;
+            }
+
+            #icon{
+                width: 120px;
+                height: 120px;
+                position: relative;
+                top: -60px;
+            }
+
+            #features h2, #advantages h2 {
+                position: relative;
+                top: -35px;
+            }
+
+            #features ul, #advantages ul {
+                position: relative;
+                top: -10px;
+            }
+
+            .glossy {
+                border-radius: 10px;
+                background: #94c4fe;
+                background: -webkit-gradient(linear, left top, left bottom, color-stop(25%,#800000), color-stop(100%,#000080));
+                background: -webkit-linear-gradient(top,  #800000 25%,#000080 100%);
+                background: -moz-linear-gradient(top,  #800000 25%, #000080 100%);
+                background: -o-linear-gradient(top,  #800000 25%,#000080 100%);
+                background: -ms-linear-gradient(top,  #800000 25%,#000080 100%);
+                background: linear-gradient(to bottom,  #800000 25%,#000080 100%);
+                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#800000', endColorstr='#000080',GradientType=0 );
+                border: 1px solid #4864a9;
+                text-shadow: 1px 1px 0px #5f5f5f;
+                -webkit-box-shadow:  5px 5px 10px #5f5f5f;    
+                box-shadow: 5px 5px 10px #5f5f5f;
+                position: relative;
+            }
+
+            .glossy:before {
+                content: "";
+                display: block;
+                position: absolute;
+                left: 5px;
+                background: -moz-linear-gradient(top,  rgba(255,255,255,1) 0%, rgba(255,255,255,0.7) 8%, rgba(255,255,255,0) 100%);
+                background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(8%,rgba(255,255,255,0.7)), color-stop(100%,rgba(255,255,255,0)));
+                background: -webkit-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(255,255,255,0.7) 8%,rgba(255,255,255,0) 100%);
+                background: -o-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(255,255,255,0.7) 8%,rgba(255,255,255,0) 100%);
+                background: -ms-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(255,255,255,0.7) 8%,rgba(255,255,255,0) 100%);
+                background: linear-gradient(to bottom,  rgba(255,255,255,1) 0%,rgba(255,255,255,0.7) 8%,rgba(255,255,255,0) 100%);
+                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=0 );
             }
         </style>
     </head>
@@ -212,7 +283,7 @@
     <body data-spy="scroll" data-target=".navbar" data-offset="50">
         @yield('content')
     </body>
-    <footer>
+    <footer class="glossy" style="border-radius: 0;">
         <div class="row justify-content-around">
             <div class="col-11" id="contact-us">
                 <h2>Contact Us</h2>
@@ -308,4 +379,9 @@
             </div>
         </div>
     </footer>
+    <script>
+        $('.navbar-nav>li>a').on('click', function(){
+            $('.navbar-collapse').collapse('hide');
+        });
+    </script>
 </html>

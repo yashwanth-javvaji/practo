@@ -1,6 +1,6 @@
 @extends('layout')
 @section('content')
-<div class="container" id="booking-details">
+<div class="container glossy" id="booking-details">
     <form method="post" action="booking_details">
         @csrf
         <div>
@@ -119,7 +119,7 @@
                 </div>
                 <div class="row">
                     <select class="form-control" id="timeslot" name="timeslot" type="text">
-                        <option value="" selected>--Select Timeslot--</option>
+                        <option value="" selected>None</option>
                         <option value="morning" {{ (old('timeslot') == 'morning') ? 'selected' : '' }}>Morning</option>
                         <option value="afternoon" {{ (old('timeslot') == 'afternoon') ? 'selected' : '' }}>Afternoon</option>
                         <option value="evening" {{ (old('timeslot') == 'evening') ? 'selected' : '' }}>Evening</option>

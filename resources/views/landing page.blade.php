@@ -99,17 +99,18 @@
             <img src="{{ URL::asset('images/practo.png')}}" class="my-auto img img-responsive" style="width: 100%; height: auto; position: absolute; top: 0; bottom: 0; left: 0; right: 0; margin: auto;">
         </div>
         <div class="col-sm-12 col-md-7" style="padding: 20px;">
-            <p>
+            <h2 style="color: black; padding-bottom: 10px;">
                 Introducing Video Consultations.<br>
                 Don&apos;t delay your health concerns.
-            </p>
+            </h2>
             <button class="btn btn-success" onclick="location.href='/new booking page';">Book a Diagnostic Test</button>
         </div>
     </div>
 </div>
 <div class="container" id="details">
     <div class="row justify-content-around">
-        <div class="col-11 col-md-5" id="features">
+        <div class="col-11 col-md-5 glossy" id="features">
+            <img src="{{ URL::asset('images/features.png')}}" id="icon">
             <h2>Features</h2>
             <ul>
                 <li><i class="fa fa-star" style="color: black;"></i> Search doctors nearby</li>
@@ -120,7 +121,8 @@
                 <li><i class="fa fa-star" style="color: black;"></i> 24/7 service</li>
             </ul>
         </div>
-        <div class="col-11 col-md-5" id="advantages">
+        <div class="col-11 col-md-5 glossy" id="advantages">
+        <img src="{{ URL::asset('images/advantages.png')}}" id="icon">
             <h2>Advantages</h2>
             <ul>
                 <li><i class="fa fa-trophy" style="color: black;"></i> No Need to Travel</li>
@@ -134,18 +136,18 @@
     </div>
 </div>
 <div class="container" id="about">
-    <div class="container">
+    <div class="glossy">
         <h2>Your home for health</h2>
         <p>
             For millions of people, Practo is the trusted and familiar home where they know they&apos;ll find a healing touch. It connects them with everything they need to take good care of themselves and their family - assessing health issues, finding the right doctor, booking diagnostic tests, obtaining medicines, storing health records or learning new ways to live healthier.<br><br>
             Healthcare providers can also harness the power of Practo as the definitive platform that helps them build their presence, grow establishments and engage patients more deeply than ever.
         </p>
     </div>
-    <div>
+    <div class="glossy">
         <h2>Diverse people. One purpose.</h2>
         <p>We are dreamers, thinkers and do-ers rolled into one.Together, we want to improve the healthcare experience for all humanity. We are guided by our values and driven by our motto to do great. These are not just principles for our products or our company, but they are a reflection of who we are as people.</p>
     </div>
-    <div>
+    <div class="glossy">
         <h2>#DoGreat</h2>
         <p>Do Great is our motto and is the hallmark of a true Practeon. It signifies the intrinsic motivation in each Practeon to strive for excellence. Every time. This means Practeons do their best work, not for want of rewards or recognitions but because they expect it of themselves.</p>
     </div>

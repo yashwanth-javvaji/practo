@@ -12,7 +12,7 @@
         type="image/x-icon">
         <style>
             body {
-                background-color: #5f5f5f;
+                background-color: #ffffff;
                 margin: 0;
                 padding: 0;
             }
@@ -75,16 +75,66 @@
                 color: #000000;
             }
 
-            tbody {
+            .table-fixed tbody {
                 display: block;
                 max-height: 250px;
                 overflow-y: auto;
             }
 
-            thead, tbody tr {
+            .table-fixed thead, .table-fixed tbody tr {
                 display: table;
                 width: 100%;
                 table-layout: fixed;
+            }
+
+            .btn {
+                box-shadow: 3px 3px 6px #5f5f5f;
+            }
+
+            .form-control:hover {
+                box-shadow: 3px 3px 6px #ff0000;
+            }
+
+            .form-control:focus {
+                box-shadow: 3px 3px 6px #00ff00;
+            }
+
+            .btn:hover, i:hover {
+                box-shadow: 5px 5px 10px #5f5f5f;
+                transform:scale(1.2,1.2);
+                -webkit-transform:scale(1.2,1.2);
+                -moz-transform:scale(1.2,1.2);
+            }
+
+            .glossy {
+                border-radius: 10px;
+                background: #94c4fe;
+                background: -webkit-gradient(linear, left top, left bottom, color-stop(25%,#00a000), color-stop(100%,#a00000));
+                background: -webkit-linear-gradient(top,  #00a000 25%,#a00000 100%);
+                background: -moz-linear-gradient(top,  #00a000 25%, #a00000 100%);
+                background: -o-linear-gradient(top,  #00a000 25%,#a00000 100%);
+                background: -ms-linear-gradient(top, #00a000 25%,#a00000 100%);
+                background: linear-gradient(to bottom, #00a000 25%,#a00000 100%);
+                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00a000', endColorstr='#a00000',GradientType=0 );
+                border: 1px solid #4864a9;
+                text-shadow: 1px 1px 0px #5f5f5f;
+                -webkit-box-shadow:  5px 5px 10px #5f5f5f;    
+                box-shadow: 5px 5px 10px #5f5f5f;
+                position: relative;
+            }
+
+            .glossy:before {
+                content: "";
+                display: block;
+                position: absolute;
+                left: 5px;
+                background: -moz-linear-gradient(top,  rgba(255,255,255,1) 0%, rgba(255,255,255,0.7) 8%, rgba(255,255,255,0) 100%);
+                background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(8%,rgba(255,255,255,0.7)), color-stop(100%,rgba(255,255,255,0)));
+                background: -webkit-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(255,255,255,0.7) 8%,rgba(255,255,255,0) 100%);
+                background: -o-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(255,255,255,0.7) 8%,rgba(255,255,255,0) 100%);
+                background: -ms-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(255,255,255,0.7) 8%,rgba(255,255,255,0) 100%);
+                background: linear-gradient(to bottom,  rgba(255,255,255,1) 0%,rgba(255,255,255,0.7) 8%,rgba(255,255,255,0) 100%);
+                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=0 );
             }
         </style>
     </head>
@@ -130,7 +180,7 @@
     <body>
         <div class="container">
             <div class="row justify-content-around">
-                <div class="col-11 col-md-5" id="tests-list">
+                <div class="col-11 col-md-5 glossy" id="tests-list">
                     @if(Session::get('tests_db'))
                         <div class="row justify-content-around">
                             <div class="col-11 alert alert-success alert-dismissible fade show" role="alert">
@@ -162,7 +212,7 @@
                     </div>
                     @enderror
                     <h2>Tests</h2>
-                    <table class="table table-responsive-xs">
+                    <table class="table table-fixed table-responsive">
                         <thead class="thead-dark">
                             <tr>
                                 <th scope="col">Test ID</th>
@@ -225,7 +275,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-11 col-md-5" id="labs-list">
+                <div class="col-11 col-md-5 glossy" id="labs-list">
                     @if(Session::get('labs_db'))
                         <div class="row justify-content-around">
                             <div class="col-11 alert alert-success alert-dismissible fade show" role="alert">
@@ -257,7 +307,7 @@
                     </div>
                     @enderror
                     <h2>Labs</h2>
-                    <table class="table table-responsive-xs">
+                    <table class="table table-fixed table-responsive">
                         <thead class="thead-dark">
                             <tr>
                                 <th scope="col">Lab ID</th>
@@ -321,7 +371,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row justify-content-around" id="associations-list">
+            <div class="row justify-content-around glossy" id="associations-list">
                 <div class="col-11">
                     @if(Session::get('associations_db'))
                         <div class="row justify-content-around">
@@ -334,7 +384,7 @@
                         </div>
                     @endif
                     <h2>Tests-Labs Association</h2>
-                    <table class="table table-responsive-md">
+                    <table class="table table-fixed table-responsive">
                         <thead class="thead-dark">
                             <tr>
                                 <th scope="col">Test ID</th>
@@ -342,6 +392,9 @@
                                 <th scope="col">Lab ID</th>
                                 <th scope="col">Lab Name</th>
                                 <th scope="col">Delete</th>
+                                <th scope="col">#</th>
+                                <th scope="col">#</th>
+                                <th scope="col">#</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -352,6 +405,9 @@
                                 <td>{{$item->lab_id}}</td>
                                 <td>{{$item->lab_name}}</td>
                                 <td><a href="/delete_association/{{$item->test_id}}&amp;{{$item->lab_id}}"><i class="fa fa-trash" style="color: red;"></i></a></td>
+                                <td>hello world</td>
+                                <td>hello world</td>
+                                <td>hello world</td>
                             </tr>
                             @endforeach
                         </tbody>

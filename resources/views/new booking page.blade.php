@@ -1,6 +1,6 @@
 @extends('layout')
 @section('content')
-<div class="container" id="booking-details">
+<div class="container glossy" id="booking-details">
     <form method="post" action="new_booking" enctype="multipart/form-data">
         @csrf
         <div>

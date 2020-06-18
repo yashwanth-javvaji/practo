@@ -12,7 +12,7 @@
         type="image/x-icon">
         <style>
             body {
-                background-color: #5f5f5f;
+                background-color: #ffffff;
                 margin: 0;
                 padding: 0;
             }
@@ -61,6 +61,13 @@
             tr:hover {
                 background-color: rgba(255, 255, 0, 0.9);
                 color: #000000;
+            }
+
+            i:hover {
+                box-shadow: 5px 5px 10px #5f5f5f;
+                transform:scale(1.2,1.2);
+                -webkit-transform:scale(1.2,1.2);
+                -moz-transform:scale(1.2,1.2);
             }
         </style>
     </head>
@@ -127,7 +134,7 @@
             @endif
         </div>
         <div class="container" id="booking-list">
-            <table class="table table-responsive-md">
+            <table class="table table-responsive">
                 <thead class="thead-dark">
                     <tr>
                         <th scope="col">Booking ID</th>
