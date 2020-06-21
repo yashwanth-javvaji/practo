@@ -238,19 +238,8 @@
                 background: linear-gradient(to bottom,  rgba(255,255,255,1) 0%,rgba(255,255,255,0.7) 8%,rgba(255,255,255,0) 100%);
                 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=0 );
             }
-
-            #loader {
-                position: fixed;
-                width: 100vw;
-                height: 100vh;
-                background: url('https://media.giphy.com/media/3ov9jKQbfWvDNu2Z0s/giphy.gif') no-repeat center center;
-                background-size: 100vw 100vh; 
-                z-index: 99;
-            }
         </style>
     </head>
-    <body onload="loader()" data-spy="scroll" data-target=".navbar" data-offset="50">
-    <div id="loader"></div>
     @section('header')
     <header>
         <nav class="navbar fixed-top navbar-expand-md navbar-dark" id="navigation">
@@ -292,7 +281,9 @@
         </nav>
     </header>
     @show
+    <body onload="loader()" data-spy="scroll" data-target=".navbar" data-offset="50">
         @yield('content')
+    </body>
     <footer class="glossy" style="border-radius: 0;">
         <div class="row justify-content-around">
             <div class="col-11" id="contact-us">
@@ -389,7 +380,6 @@
             </div>
         </div>
     </footer>
-    </body>
     <script>
         $('.navbar-nav>li>a').on('click', function(){
             $('.navbar-collapse').collapse('hide');
@@ -401,8 +391,5 @@
             var text = $(this).val();
             $(this).val(text.trimLeft());
         });
-        function loader(){
-          document.getElementById('loader').style.display = 'none';
-        };
     </script>
 </html>
