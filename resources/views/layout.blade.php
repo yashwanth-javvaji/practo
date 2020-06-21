@@ -249,6 +249,7 @@
             }
         </style>
     </head>
+    <div id="loader"></div>
     @section('header')
     <header>
         <nav class="navbar fixed-top navbar-expand-md navbar-dark" id="navigation">
@@ -291,7 +292,6 @@
     </header>
     @show
     <body onload="loader()" data-spy="scroll" data-target=".navbar" data-offset="50">
-        <div id="loader"></div>
         @yield('content')
     </body>
     <footer class="glossy" style="border-radius: 0;">
