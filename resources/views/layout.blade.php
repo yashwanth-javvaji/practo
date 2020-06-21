@@ -243,13 +243,12 @@
                 position: fixed;
                 width: 100vw;
                 height: 100vh;
-                background: #000000 "{{URL::asset('images/loader.gif')}}" no-repeat center center;
-                background-size: 50vw 50vh; 
+                background: url('https://drive.google.com/file/d/1iso4KtGZHCQ5BBS8CZmv4DCGhq0Pg_Q9/view?usp=sharing') no-repeat center center;
+                background-size: 100vw 100vh; 
                 z-index: 99;
             }
         </style>
     </head>
-    <div id="loader"></div>
     @section('header')
     <header>
         <nav class="navbar fixed-top navbar-expand-md navbar-dark" id="navigation">
@@ -292,6 +291,7 @@
     </header>
     @show
     <body onload="loader()" data-spy="scroll" data-target=".navbar" data-offset="50">
+        <div id="loader"></div>
         @yield('content')
     </body>
     <footer class="glossy" style="border-radius: 0;">
