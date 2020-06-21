@@ -249,6 +249,7 @@
             }
         </style>
     </head>
+    <body onload="loader()" data-spy="scroll" data-target=".navbar" data-offset="50">
     <div id="loader"></div>
     @section('header')
     <header>
@@ -291,9 +292,7 @@
         </nav>
     </header>
     @show
-    <body onload="loader()" data-spy="scroll" data-target=".navbar" data-offset="50">
         @yield('content')
-    </body>
     <footer class="glossy" style="border-radius: 0;">
         <div class="row justify-content-around">
             <div class="col-11" id="contact-us">
@@ -390,6 +389,7 @@
             </div>
         </div>
     </footer>
+    </body>
     <script>
         $('.navbar-nav>li>a').on('click', function(){
             $('.navbar-collapse').collapse('hide');
