@@ -243,7 +243,7 @@
                 position: fixed;
                 width: 100vw;
                 height: 100vh;
-                background: url('https://drive.google.com/file/d/1iso4KtGZHCQ5BBS8CZmv4DCGhq0Pg_Q9/view?usp=sharing') no-repeat center center;
+                background: url('https://media.giphy.com/media/3ov9jKQbfWvDNu2Z0s/giphy.gif') no-repeat center center;
                 background-size: 100vw 100vh; 
                 z-index: 99;
             }
