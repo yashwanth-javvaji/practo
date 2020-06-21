@@ -1,4 +1,5 @@
 @extends('layout')
+@section('title', 'New Booking')
 @section('content')
 <div class="container">
     <div class="glossy" id="booking-details">

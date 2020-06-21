@@ -1,4 +1,5 @@
 @extends('layout')
+@section('title', 'Admin Login')
 @section('header')
     <header>
         <nav class="navbar fixed-top navbar-expand-md navbar-dark" id="navigation">
