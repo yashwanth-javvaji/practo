@@ -172,11 +172,11 @@
             }
 
             .form-control:hover {
-                box-shadow: 3px 3px 6px #ff0000;
+                box-shadow: 0px 0px 10px 4px #ffff00;
             }
 
             .form-control:focus {
-                box-shadow: 3px 3px 6px #00ff00;
+                box-shadow: 0px 0px 10px 4px #00ff00;
             }
 
             .btn:hover {
@@ -211,13 +211,13 @@
             .glossy {
                 border-radius: 10px;
                 background: #94c4fe;
-                background: -webkit-gradient(linear, left top, left bottom, color-stop(25%,#800000), color-stop(100%,#000080));
-                background: -webkit-linear-gradient(top,  #800000 25%,#000080 100%);
-                background: -moz-linear-gradient(top,  #800000 25%, #000080 100%);
-                background: -o-linear-gradient(top,  #800000 25%,#000080 100%);
-                background: -ms-linear-gradient(top,  #800000 25%,#000080 100%);
-                background: linear-gradient(to bottom,  #800000 25%,#000080 100%);
-                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#800000', endColorstr='#000080',GradientType=0 );
+                background: -webkit-gradient(linear, left top, left bottom, color-stop(25%,#ff0000), color-stop(100%,#0000ff));
+                background: -webkit-linear-gradient(top,  #ff0000 25%,#0000ff 100%);
+                background: -moz-linear-gradient(top,  #ff0000 25%, #0000ff 100%);
+                background: -o-linear-gradient(top,  #ff0000 25%,#0000ff 100%);
+                background: -ms-linear-gradient(top,  #ff0000 25%,#0000ff 100%);
+                background: linear-gradient(to bottom,  #ff0000 25%,#0000ff 100%);
+                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff0000', endColorstr='#0000ff',GradientType=0 );
                 border: 1px solid #4864a9;
                 text-shadow: 1px 1px 0px #5f5f5f;
                 -webkit-box-shadow:  5px 5px 10px #5f5f5f;    
@@ -238,8 +238,18 @@
                 background: linear-gradient(to bottom,  rgba(255,255,255,1) 0%,rgba(255,255,255,0.7) 8%,rgba(255,255,255,0) 100%);
                 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=0 );
             }
+
+            #loader {
+                position: fixed;
+                width: 100vw;
+                height: 100vh;
+                background: #000000 "{{URL::asset('images/loader.gif')}}" no-repeat center center;
+                background-size: 50vw 50vh; 
+                z-index: 99;
+            }
         </style>
     </head>
+    <div id="loader"></div>
     @section('header')
     <header>
         <nav class="navbar fixed-top navbar-expand-md navbar-dark" id="navigation">
@@ -391,5 +401,8 @@
             var text = $(this).val();
             $(this).val(text.trimLeft());
         });
+        function loader(){
+          document.getElementById('loader').style.display = 'none';
+        };
     </script>
 </html>

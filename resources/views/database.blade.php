@@ -93,18 +93,18 @@
             }
 
             .form-control:hover {
-                box-shadow: 3px 3px 6px #ff0000;
+                box-shadow: 0px 0px 10px 4px #ff0000;
             }
 
             .form-control:focus {
-                box-shadow: 3px 3px 6px #00ff00;
+                box-shadow: 0px 0px 10px 4px #0000ff;
             }
 
-            .btn:hover, i:hover {
+            .btn:hover {
                 box-shadow: 5px 5px 10px #5f5f5f;
-                transform:scale(1.2,1.2);
-                -webkit-transform:scale(1.2,1.2);
-                -moz-transform:scale(1.2,1.2);
+                transform:scale(1.1,1.1);
+                -webkit-transform:scale(1.1,1.1);
+                -moz-transform:scale(1.1,1.1);
             }
 
             .glossy {
