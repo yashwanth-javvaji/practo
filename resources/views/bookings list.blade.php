@@ -161,7 +161,7 @@
                         <td>{{$item->email}}</td>
                         <td>{{$item->age}}</td>
                         <td>{{$item->gender}}</td>
-                        <td><a target="_blank" href="/bookings list/{{$item->id}}/prescription">{{$item->file_name}}</a></td>
+                        <td><a target="_blank" href="uploads/{{$item->file_name}}">{{$item->file_name}}</a></td>
                         <td>{{$item->test_name}}</td>
                         <td>{{$item->lab_name}}</td>
                         <td>{{$item->selected_date}}</td>

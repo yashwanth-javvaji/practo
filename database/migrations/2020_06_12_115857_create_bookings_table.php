@@ -3,7 +3,6 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use Illuminate\Support\Facades\DB;
 
 class CreateBookingsTable extends Migration
 {
@@ -20,6 +19,7 @@ class CreateBookingsTable extends Migration
             $table->integer('user_id')->unsigned()->nullable();
             $table->integer('test_id')->unsigned()->nullable();
             $table->integer('lab_id')->unsigned()->nullable();
+            $table->binary('prescription')->nullable();
             $table->string('file_name')->nullable();
             $table->date('selected_date')->nullable();
             $table->string('timeslot')->nullable();
@@ -28,7 +28,6 @@ class CreateBookingsTable extends Migration
             $table->foreign('test_id')->references('id')->on('tests')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('lab_id')->references('id')->on('labs')->onDelete('cascade')->onUpdate('cascade');
         });
-        DB::statement("ALTER TABLE bookings ADD prescription MEDIUMBLOB");
     }
 
     /**
