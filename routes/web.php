@@ -31,7 +31,7 @@ Route::group(['middleware'=>'web'], function(){
     Route::get('/logout', 'Practo@logout');
     Route::get('/bookings list/{id}/prescription', function($id){
         $booking = booking::find($id);
-        return response()->make($booking->prescription, 200, array('Content-Type' => (new finfo(FILEINFO_MIME))->buffer($booking->prescription)));
+        return $booking->prescription;
     });
     Route::get('/delete/{id}', 'Practo@delete');
     Route::get('/database', 'Practo@database');
