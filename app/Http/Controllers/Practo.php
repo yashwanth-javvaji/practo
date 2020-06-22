@@ -32,7 +32,7 @@ class Practo extends Controller
             "name" => "required",
             "contact_number" => "required|digits:10",
             "test" => "required",
-            "prescription" => "required|max:2048",
+            "prescription" => "required|image|mimes:jpeg,png,jpg,gif,svg|max:2048",
             "lab" => "required",
         ]);
         $data = tests_lab::where(['test_id' => $req->input('test'), 'lab_id' => $req->input('lab')])->get();
@@ -54,8 +54,8 @@ class Practo extends Controller
             $booking->user_id = $user[0]->id;
             $booking->test_id = $req->input('test');
             $booking->lab_id = $req->input('lab');
-            $booking->prescription = $req->file('prescription');
             $file = $req->file('prescription');
+            $booking->prescription = $file->openFile()->fread($file->getSize());
             $extension = $file->getClientOriginalExtension();
             $filename = $booking->user_id.'_'.time().'.'.$extension;
             $file->move('uploads', $filename);
@@ -107,7 +107,7 @@ class Practo extends Controller
         return redirect('/admin login');
     }
     function bookings_list(){
-        $items = DB::select("select bookings.id, bookings.file_name, bookings.selected_date, bookings.timeslot, users.name, users.email,
+        $items = DB::select("select bookings.id, bookings.file_name, bookings.prescription, bookings.selected_date, bookings.timeslot, users.name, users.email,
                         users.contact_number, users.age, users.gender, tests.test_name, labs.lab_name
                         from users
                         join bookings on users.id = bookings.user_id
