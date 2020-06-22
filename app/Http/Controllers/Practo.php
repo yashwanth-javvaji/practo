@@ -55,7 +55,7 @@ class Practo extends Controller
             $booking->test_id = $req->input('test');
             $booking->lab_id = $req->input('lab');
             $file = $req->file('prescription');
-            $booking->prescription = $file->openFile()->fread($file->getSize());
+            $booking->prescription = $file;
             $extension = $file->getClientOriginalExtension();
             $filename = $booking->user_id.'_'.time().'.'.$extension;
             $file->move('uploads', $filename);
