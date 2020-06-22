@@ -30,8 +30,9 @@ Route::group(['middleware'=>'web'], function(){
     Route::get('/bookings list', 'Practo@bookings_list');
     Route::get('/logout', 'Practo@logout');
     Route::get('/bookings list/{id}/prescription', function($id){
+        header("Content-type: image");
         $booking = booking::find($id);
-        return $booking->prescription;
+        echo $booking->prescription;
     });
     Route::get('/delete/{id}', 'Practo@delete');
     Route::get('/database', 'Practo@database');
