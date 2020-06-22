@@ -61,6 +61,6 @@ Route::get('/insert', function() {
     $data = DB::select("select * from admins where admin_name = 'admin'");
     if(!$data){
         $pass = Crypt::encrypt('admin@practo');
-        DB::select("insert into admins(admin_name, password) values('admin', $pass)");
+        DB::select("insert into admins(admin_name, password) values('admin', '$pass')");
     }
 });
