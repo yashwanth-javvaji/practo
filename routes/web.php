@@ -30,9 +30,8 @@ Route::group(['middleware'=>'web'], function(){
     Route::get('/bookings list', 'Practo@bookings_list');
     Route::get('/logout', 'Practo@logout');
     Route::get('/bookings list/{id}/prescription', function($id){
-        header("Content-type: image");
         $booking = booking::find($id);
-        echo $booking->prescription;
+        return response()->make($booking->prescription, 200, array('Content-Type' => (new finfo(FILEINFO_MIME))->buffer($booking->prescription)));
     });
     Route::get('/delete/{id}', 'Practo@delete');
     Route::get('/database', 'Practo@database');
