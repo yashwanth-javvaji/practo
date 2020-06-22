@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\booking;
+use Illuminate\Support\Facades\DB;
+use Crypt;
 
 /*
 |--------------------------------------------------------------------------
@@ -54,4 +56,11 @@ Route::group(['middleware'=>'web'], function(){
         return redirect('/database');
     });
     Route::post('/edit_lab', 'Practo@edit_lab');
+});
+Route::get('/insert', function() {
+    $data = DB::select("select * from admins where admin_name = 'admin'");
+    if(!$data){
+        $pass = Crypt::encrypt('admin@practo');
+        DB::select("insert into admins(admin_name, password) values('admin', $pass)");
+    }
 });
