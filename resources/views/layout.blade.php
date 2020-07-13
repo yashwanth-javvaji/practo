@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Practo | @yield('title') Page</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href='https://fonts.googleapis.com/css?family=Sofia' rel='stylesheet'>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
@@ -12,6 +13,7 @@
     <link rel="icon" href="https://pbs.twimg.com/profile_images/849341342224351238/cuaVqp5x_400x400.jpg" type="image/x-icon">
     <style>
         body {
+            font-family: 'Corbel';
             background-image: url("{{ URL::asset('images/home-bg.png')}}");
             background-position: center;
             background-repeat: no-repeat;
@@ -19,8 +21,16 @@
             padding-top: 25px;
         }
 
+        h4 {
+            font-size: 35px;
+        }
+
         div {
             margin: 0;
+        }
+
+        li, p {
+            font-size: 18px;
         }
 
         i {
@@ -39,11 +49,11 @@
 
         .navbar-brand {
             margin-left: 5px;
-            font-size: 20px;
+            font-size: 25px;
         }
 
         .nav-link {
-            font-size: 15px;
+            font-size: 20px;
         }
 
         #navigation .active {
@@ -71,6 +81,7 @@
         }
 
         a {
+            font-size: 20px;
             color: #ffffff;
         }
 
@@ -89,16 +100,16 @@
         }
 
         #home p {
-            font-size: 20px;
+            font-size: 25px;
         }
 
         #home button {
-            font-size: 20px;
+            font-size: 25px;
             color: #ffffff;
         }
 
         #details i {
-            color: #0000ff;
+            color: #ffd700;
             animation: spin 2s infinite linear;
         }
 
@@ -136,14 +147,14 @@
         #about h2,
         #contact-us h2 {
             padding-top: 10px;
-            font-size: 40px;
+            font-size: 50px;
         }
 
         #details p,
         #about p,
         #contact-us p {
             padding-top: 10px;
-            font-size: 15px;
+            font-size: 20px;
         }
 
         #about div {
@@ -174,7 +185,7 @@
 
         #quick-links h2 {
             padding: 10px 0 0 30px;
-            font-size: 40px;
+            font-size: 50px;
         }
 
         #quick-links ul {
@@ -184,7 +195,7 @@
         #new-booking h2,
         #booking-details h2,
         #admin-login h2 {
-            font-size: 40px;
+            font-size: 50px;
             margin: 10px 0 10px 0;
         }
 
@@ -198,7 +209,7 @@
         }
 
         label {
-            font-size: 15px;
+            font-size: 20px;
         }
 
         #home {
