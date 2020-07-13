@@ -103,8 +103,8 @@ class Practo extends Controller
             Session::put('admin', $req->input('admin_name'));
             return redirect('/');
         }
-        Session::flash('login', 'Invalid Credentials! Please try again.');
-        return redirect('/admin login');
+        Session::flash('errors', 'Invalid Credentials! Please try again.');
+        return redirect('/');
     }
     function bookings_list(){
         $items = DB::select("select bookings.id, bookings.file_name, bookings.prescription, bookings.selected_date, bookings.timeslot, users.name, users.email,

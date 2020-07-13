@@ -1,110 +1,83 @@
 @extends('layout')
 @section('title', 'Home')
-@section('header')
-    <header>
-        <nav class="navbar fixed-top navbar-expand-md navbar-dark" id="navigation">
-            <a class="navbar-brand" href="#">
-                <img src="{{ URL::asset('images/logo.png')}}" height=30 width=30>
-                Practo
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbar-content">
-                <ul class="navbar-nav ml-auto" align="center">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#home" style="padding-left: 10px;">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#about" style="padding-left: 10px;">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact-us" style="padding-left: 10px;">Contact Us</a>
-                    </li>
-                    @if(Session::get('admin'))
-                    <li class="nav-item">
-                        <a class="nav-link" href="/bookings list" style="padding-left: 10px;">Bookings List</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/database" style="padding-left: 10px;">Database</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/logout" style="padding-left: 10px;">Logout</a>
-                    </li> 
-                    @else
-                    <li class="nav-item">
-                        <a class="nav-link" href="/admin login" style="padding-left: 10px;">Admin Login</a>
-                    </li>
-                    @endif
-                </ul>
-            </div>
-        </nav>
-    </header>
-@endsection
 @section('content')
+<header>
+    <nav class="navbar fixed-top navbar-expand-md navbar-dark" id="navigation">
+        <a class="navbar-brand" href="/">
+            <img src="{{ URL::asset('images/logo.png')}}" height=30 width=30>
+            <strong>Practo</strong>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbar-content">
+            <ul class="navbar-nav ml-auto" style="text-align: left;">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#" style="padding-left: 10px;"><strong>Home</strong></a>
+                </li>
+                @if(Session::get('admin'))
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact-us" style="padding-left: 10px;"><strong>Contact Us</strong></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/bookings list" style="padding-left: 10px;"><strong>Bookings List</strong></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/database" style="padding-left: 10px;"><strong>Database</strong></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout" style="padding-left: 10px;"><strong>Logout</strong></a>
+                </li>
+                @else
+                <li class="nav-item">
+                    <a class="nav-link" href="#about" style="padding-left: 10px;"><strong>About</strong></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact-us" style="padding-left: 10px;"><strong>Contact Us</strong></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-toggle="modal" data-target="#adminLogin"><strong>Admin Login</strong></a>
+                </li>
+                @endif
+            </ul>
+        </div>
+    </nav>
+</header>
 <div class="container">
     @if(Session::get('errors'))
-        <div class="row justify-content-around">
-            <div class="col-11 alert alert-danger alert-dismissible fade show" role="alert">
-                <strong>{{Session::get('errors')}}</strong>
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
+    <div class="row justify-content-around">
+        <div class="col-11 alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>{{Session::get('errors')}}</strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
         </div>
-    @endif
-</div>
-<div class="container">
-    <div class="carousel slide" id="main-carousel" data-ride="carousel">
-        <ol class="carousel-indicators">
-            <li data-target="#main-carousel" data-slide-to="0" class="active"></li>
-            <li data-target="#main-carousel" data-slide-to="1"></li>
-            <li data-target="#main-carousel" data-slide-to="2"></li>
-        </ol>
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img class="d-block img-fluid mx-auto rounded" src="{{ URL::asset('images/slide 1.png')}}">
-            </div>
-            <div class="carousel-item">
-                <img class="d-block img-fluid mx-auto rounded" src="{{ URL::asset('images/slide 2.png')}}">
-            </div>
-            <div class="carousel-item">
-                <img class="d-block img-fluid mx-auto rounded" src="{{ URL::asset('images/slide 3.png')}}">
-            </div>
-        </div>
-        <a href="#main-carousel" class="carousel-control-prev" data-slide="prev">
-            <span class="carousel-control-prev-icon"></span>
-            <span class="sr-only" aria-hidden="true">Prev</span>
-        </a>
-        <a href="#main-carousel" class="carousel-control-next" data-slide="next">
-            <span class="carousel-control-next-icon"></span>
-            <span class="sr-only" aria-hidden="true">Next</span>
-        </a>
     </div>
+    @endif
 </div>
 <div class="container">
     @if(Session::get('status'))
-        <div class="row justify-content-around">
-            <div class="col-11 alert alert-success alert-dismissible fade show" role="alert">
-                <strong>{{Session::get('status')}}</strong>
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
+    <div class="row justify-content-around">
+        <div class="col-11 alert alert-success alert-dismissible fade show" role="alert">
+            <strong>{{Session::get('status')}}</strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
         </div>
+    </div>
     @endif
 </div>
 <div class="container">
-    <div class="row justify-content-around" id="home">
-        <div class="col-sm-12 col-md-5" id="practo">
-            <img src="{{ URL::asset('images/practo.png')}}" class="my-auto img img-responsive" style="width: 100%; height: auto; position: absolute; top: 0; bottom: 0; left: 0; right: 0; margin: auto;">
-        </div>
-        <div class="col-sm-12 col-md-7" style="padding: 20px;">
-            <h2 style="color: black; padding-bottom: 10px;">
-                Introducing Video Consultations.<br>
-                Don&apos;t delay your health concerns.
-            </h2>
-            <button class="btn btn-success" onclick="location.href='/new booking page';">Book a Diagnostic Test</button>
+    <div class="row">
+        <div class="card mx-auto" id="home">
+            <img class="card-img-top" src="{{ URL::asset('images/practo-logo.jpg')}}">
+            <div class="card-body mx-auto">
+                <h2 style="color: black; padding-bottom: 10px;">
+                    Introducing Video Consultations.<br>
+                    Don&apos;t delay your health concerns.
+                </h2>
+                <button class="btn btn-success" onclick="location.href='/new booking page';">Book a Diagnostic Test</button>
+            </div>
         </div>
     </div>
 </div>
@@ -114,24 +87,24 @@
             <img src="{{ URL::asset('images/features.png')}}" id="icon">
             <h2>Features</h2>
             <ul>
-                <li><i class="fa fa-star" style="color: black;"></i> Search doctors nearby</li>
-                <li><i class="fa fa-star" style="color: black;"></i> Online consultations</li>
-                <li><i class="fa fa-star" style="color: black;"></i> Book your appointments online</li>
-                <li><i class="fa fa-star" style="color: black;"></i> Setting up the reminders for the medicine</li>
-                <li><i class="fa fa-star" style="color: black;"></i> Online booking for a lab test</li>
-                <li><i class="fa fa-star" style="color: black;"></i> 24/7 service</li>
+                <li><i class="fa fa-star"></i> Search doctors nearby</li>
+                <li><i class="fa fa-star"></i> Online consultations</li>
+                <li><i class="fa fa-star"></i> Book your appointments online</li>
+                <li><i class="fa fa-star"></i> Setting up the reminders for the medicine</li>
+                <li><i class="fa fa-star"></i> Online booking for a lab test</li>
+                <li><i class="fa fa-star"></i> 24/7 service</li>
             </ul>
         </div>
         <div class="col-11 col-md-5 glossy" id="advantages" style="margin-bottom: 50px;">
-        <img src="{{ URL::asset('images/advantages.png')}}" id="icon">
+            <img src="{{ URL::asset('images/advantages.png')}}" id="icon">
             <h2>Advantages</h2>
             <ul>
-                <li><i class="fa fa-trophy" style="color: black;"></i> No Need to Travel</li>
-                <li><i class="fa fa-trophy" style="color: black;"></i> Improved ways to check your symptoms</li>
-                <li><i class="fa fa-trophy" style="color: black;"></i> Save Your Money</li>
-                <li><i class="fa fa-trophy" style="color: black;"></i> Privacy and Security</li>
-                <li><i class="fa fa-trophy" style="color: black;"></i> Comfortable and Convenient</li>
-                <li><i class="fa fa-trophy" style="color: black;"></i> No Risk of Infections From the Doctor's Clinic</li>
+                <li><i class="fa fa-trophy"></i> No Need to Travel</li>
+                <li><i class="fa fa-trophy"></i> Improved ways to check your symptoms</li>
+                <li><i class="fa fa-trophy"></i> Save Your Money</li>
+                <li><i class="fa fa-trophy"></i> Privacy and Security</li>
+                <li><i class="fa fa-trophy"></i> Comfortable and Convenient</li>
+                <li><i class="fa fa-trophy"></i> No Risk of Infections From the Doctor's Clinic</li>
             </ul>
         </div>
     </div>
@@ -153,4 +126,100 @@
         <p>Do Great is our motto and is the hallmark of a true Practeon. It signifies the intrinsic motivation in each Practeon to strive for excellence. Every time. This means Practeons do their best work, not for want of rewards or recognitions but because they expect it of themselves.</p>
     </div>
 </div>
+<footer>
+    <div class="row justify-content-around">
+        <div class="col-11 text-center" id="contact-us">
+            <h2>Contact Us</h2>
+            <p>Have questions about our products, support services, or anything else? Let us know and we&apos;ll get back to you.</p>
+        </div>
+        <div class="col-11 text-center" id="address">
+            <h4>Address</h4>
+            <p>Salarpuria symbiosis Arekere Village Begur, Bannerghatta Main Rd, Venugopal Reddy Layout, Uttarahalli Hobli, Bengaluru, Karnataka 560076</p>
+            <span class="fa-stack fa-lg">
+                <i class="fa fa-square fa-stack-2x" style="color: black;"></i>
+                <i class="fas fa-blog fa-stack-1x fa-inverse"></i>
+            </span>
+            <a href="https://blog.practo.com/" data-toggle="tooltip" data-placement="right" title="Our Blog">Blog</a><br>
+            <span class="fa-stack fa-lg">
+                <i class="fa fa-square fa-stack-2x" style="color: black;"></i>
+                <i class="fa fa-newspaper-o fa-stack-1x fa-inverse"></i>
+            </span>
+            <a href="https://www.practo.com/company/press" data-toggle="tooltip" data-placement="right" title="Latest News">Press</a>
+        </div>
+    </div>
+    <div class="row justify-content-around" id="quick-links">
+        <div class="col-8 col-sm-5 col-md-4 col-lg-3">
+            <h2 style="text-align: left; padding-left: 54px;">Social</h2>
+            <ul style="text-align: left;">
+                <li>
+                    <span class="fa-stack fa-lg">
+                        <i class="fa fa-square fa-stack-2x" style="color: black;"></i>
+                        <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <a href="https://www.facebook.com/practo">Facebook</a></li>
+                <li>
+                    <span class="fa-stack fa-lg">
+                        <i class="fa fa-square fa-stack-2x" style="color: black;"></i>
+                        <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <a href="https://twitter.com/Practo">Twitter</a>
+                </li>
+                <li>
+                    <span class="fa-stack fa-lg">
+                        <i class="fa fa-square fa-stack-2x" style="color: black;"></i>
+                        <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <a href="https://www.linkedin.com/company/practo-technologies-pvt-ltd">Linkedin</a>
+                </li>
+                <li>
+                    <span class="fa-stack fa-lg">
+                        <i class="fa fa-square fa-stack-2x" style="color: black;"></i>
+                        <i class="fa fa-youtube fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <a href="https://www.youtube.com/user/PractoSupport">Youtube</a>
+                </li>
+                <li>
+                    <span class="fa-stack fa-lg">
+                        <i class="fa fa-square fa-stack-2x" style="color: black;"></i>
+                        <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <a href="https://github.com/practo">Github</a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-12 col-sm-7 col-md-5 col-lg-4">
+            <h2 style="text-align: left; padding-left: 48px;">Quick Links</h2>
+            <ul style="text-align: left;">
+                <li>
+                    <span class="fa-stack fa-lg">
+                        <i class="fa fa-square fa-stack-2x" style="color: black;"></i>
+                        <i class="fa fa-home fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <a href="/">Home</a>
+                </li>
+                <li>
+                    <span class="fa-stack fa-lg">
+                        <i class="fa fa-square fa-stack-2x" style="color: black;"></i>
+                        <i class="fa fa-ticket fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <a href="/new booking page">Book a Diagnostic Test</a>
+                </li>
+                <li>
+                    <span class="fa-stack fa-lg">
+                        <i class="fa fa-square fa-stack-2x" style="color: black;"></i>
+                        <i class="fa fa-info fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <a href="/#about">About</a>
+                </li>
+                <li>
+                    <span class="fa-stack fa-lg fa-rotate-90">
+                        <i class="fa fa-square fa-stack-2x" style="color: black;"></i>
+                        <i class="fa fa-phone fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <a href="#contact-us">Contact Us</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</footer>
 @endsection

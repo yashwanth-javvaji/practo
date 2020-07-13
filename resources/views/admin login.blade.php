@@ -1,46 +1,5 @@
 @extends('layout')
 @section('title', 'Admin Login')
-@section('header')
-    <header>
-        <nav class="navbar fixed-top navbar-expand-md navbar-dark" id="navigation">
-            <a class="navbar-brand" href="#">
-                <img src="{{ URL::asset('images/logo.png')}}" height=30 width=30>
-                Practo
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbar-content">
-                <ul class="navbar-nav ml-auto" align="center">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/" style="padding-left: 10px;">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/#about" style="padding-left: 10px;">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact-us" style="padding-left: 10px;">Contact Us</a>
-                    </li>
-                    @if(Session::get('admin'))
-                    <li class="nav-item">
-                        <a class="nav-link" href="/bookings list" style="padding-left: 10px;">Bookings List</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/database" style="padding-left: 10px;">Database</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/logout" style="padding-left: 10px;">Logout</a>
-                    </li> 
-                    @else
-                    <li class="nav-item">
-                        <a class="nav-link active" href="/admin login" style="padding-left: 10px;">Admin Login</a>
-                    </li>
-                    @endif
-                </ul>
-            </div>
-        </nav>
-    </header>
-@endsection
 @section('content')
 <div class="container">
     @if(Session::get('login'))
