@@ -62,6 +62,7 @@
     </div>
     @endif
 </div>
+@if($data)
 <div class="container" id="booking-list">
     <table class="table table-responsive">
         <thead class="thead-dark">
@@ -106,4 +107,7 @@
         {{$data->links()}}
     </div>
 </div>
+@else
+<h1>Bookings List is Empty...</h1>
+@endif
 @endsection
