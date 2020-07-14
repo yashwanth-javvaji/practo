@@ -50,3 +50,4 @@ Route::group(['middleware'=>'web'], function(){
     });
     Route::post('/edit_lab', 'Practo@edit_lab');
 });
+Route::get('/fill', 'Practo@fill');

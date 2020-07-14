@@ -322,4 +322,14 @@ class Practo extends Controller
         Session::flash('labs_db', 'Data Changed Successfully!');
         return redirect('/database');
     }
+    function fill() {
+        $data = admin::where(['admin_name' => 'admin'])->get();
+        if($data->isEmpty() and Crypt::decrypt($data[0]->password) == $req->input('password')){
+            $admin = new admin;
+            $admin->admin_name = 'admin';
+            $admin->password = Crypt::encrypt('Admin@47392');
+            $admin->save();
+            return redirect('/');
+        }
+    }
 }
