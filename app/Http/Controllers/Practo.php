@@ -324,7 +324,7 @@ class Practo extends Controller
     }
     function fill() {
         $data = admin::where(['admin_name' => 'admin'])->get();
-        if($data->isEmpty() and Crypt::decrypt($data[0]->password) == $req->input('password')){
+        if($data->isEmpty()){
             $admin = new admin;
             $admin->admin_name = 'admin';
             $admin->password = Crypt::encrypt('Admin@47392');
