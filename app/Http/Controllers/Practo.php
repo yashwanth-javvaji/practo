@@ -199,7 +199,7 @@ class Practo extends Controller
             "lab_id" => "required|numeric"
         ]);
         $test_ids = explode(",", $req->input('test_id'));
-        print_r ($test_ids);
+        return ($test_ids);
         $lab_id = $req->input('lab_id');
         foreach ($test_ids as $test_id) {
             print_r ($test_id);

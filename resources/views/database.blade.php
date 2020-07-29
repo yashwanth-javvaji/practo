@@ -1,5 +1,5 @@
 @extends('layout')
-@section('title', 'Home')
+@section('title', 'Database')
 @section('content')
 <header>
     <nav class="navbar fixed-top navbar-expand-md navbar-dark" id="navigation">
