@@ -205,7 +205,6 @@ class Practo extends Controller
             $data = tests_lab::where(['test_id' => $test_id, 'lab_id' => $lab_id])->get();
             if (test::find($test_id) and lab::find($lab_id) and $data->isEmpty()) {
                 DB::select("insert into tests_labs(test_id, lab_id) values($test_id, $lab_id)");
-                Session::flash('associations_db', 'Associations Added Successfully!');
             } else if (!$data->isEmpty()) {
                 Session::flash('association', "Test ID: $test_id and Lab ID: $lab_id already exists!");
                 return redirect('/database')->withInput();
@@ -214,6 +213,7 @@ class Practo extends Controller
                 return redirect('/database')->withInput();
             }
         }
+        Session::flash('associations_db', 'Associations Added Successfully!');
         return redirect('/database');
     }
     function delete_test($id)
