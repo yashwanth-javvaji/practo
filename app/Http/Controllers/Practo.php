@@ -199,10 +199,10 @@ class Practo extends Controller
             "lab_id" => "required|numeric"
         ]);
         $test_ids = explode(",", $req->input('test_id'));
-        return ($test_ids);
         $lab_id = $req->input('lab_id');
-        foreach ($test_ids as $test_id) {
-            print_r ($test_id);
+        foreach ($test_ids as $i) {
+            $test_id = (int)$i;
+            return $test_id;
             $data = tests_lab::where(['test_id' => $test_id, 'lab_id' => $lab_id])->get();
             if (test::find($test_id) and lab::find($lab_id) and $data->isEmpty()) {
                 DB::select("insert into tests_labs(test_id, lab_id) values($test_id, $lab_id)");
