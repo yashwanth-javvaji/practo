@@ -22,12 +22,14 @@ use Crypt;
 class Practo extends Controller
 {
     //
-    function new_booking_page(){
+    function new_booking_page()
+    {
         $tests = DB::select("select id, test_name from tests order by id");
         $labs = DB::select("select id, lab_name from labs order by id");
         return view('/new booking page', ['tests' => $tests, 'labs' => $labs]);
     }
-    function new_booking(Request $req){
+    function new_booking(Request $req)
+    {
         $req->validate([
             "name" => "required",
             "contact_number" => "required|digits:10",
@@ -36,14 +38,13 @@ class Practo extends Controller
             "lab" => "required",
         ]);
         $data = tests_lab::where(['test_id' => $req->input('test'), 'lab_id' => $req->input('lab')])->get();
-        if($data->isEmpty()){
+        if ($data->isEmpty()) {
             $lab = lab::find($req->input('lab'))->lab_name;
             $test = test::find($req->input('test'))->test_name;
             Session::flash('status', "$lab does not provide $test");
-        }
-        else{
+        } else {
             $data = User::where(['name' => $req->input('name'), 'contact_number' => $req->input('contact_number')])->get();
-            if($data->isEmpty()){
+            if ($data->isEmpty()) {
                 $user = new User;
                 $user->name = $req->input('name');
                 $user->contact_number = $req->input('contact_number');
@@ -57,7 +58,7 @@ class Practo extends Controller
             $file = $req->file('prescription');
             $booking->prescription = $file;
             $extension = $file->getClientOriginalExtension();
-            $filename = $booking->user_id.'_'.time().'.'.$extension;
+            $filename = $booking->user_id . '_' . time() . '.' . $extension;
             $file->move('uploads', $filename);
             $booking->file_name = $filename;
             $booking->save();
@@ -69,7 +70,8 @@ class Practo extends Controller
         }
         return redirect('/new booking page')->withInput();
     }
-    function booking_details(Request $req){
+    function booking_details(Request $req)
+    {
         $req->validate([
             "name" => "required",
             "contact_number" => "required|digits:10",
@@ -93,20 +95,22 @@ class Practo extends Controller
         Session::flash('status', 'Booking Confirmed!');
         return redirect('/');
     }
-    function login(Request $req){
+    function login(Request $req)
+    {
         $req->validate([
             "admin_name" => "required",
-            "password" =>"required",
+            "password" => "required",
         ]);
         $data = admin::where(['admin_name' => $req->input('admin_name')])->get();
-        if(!$data->isEmpty() and Crypt::decrypt($data[0]->password) == $req->input('password')){
+        if (!$data->isEmpty() and Crypt::decrypt($data[0]->password) == $req->input('password')) {
             Session::put('admin', $req->input('admin_name'));
             return redirect('/');
         }
         Session::flash('errors', 'Invalid Credentials! Please try again.');
         return redirect('/');
     }
-    function bookings_list(){
+    function bookings_list()
+    {
         $items = DB::select("select bookings.id, bookings.file_name, bookings.prescription, bookings.selected_date, bookings.timeslot, users.name, users.email,
                         users.contact_number, users.age, users.gender, tests.test_name, labs.lab_name
                         from users
@@ -117,7 +121,8 @@ class Practo extends Controller
         $data = $this->paginate($items);
         return view('/bookings list', compact('data'));
     }
-    public function paginate($items, $perPage = 7, $page = null){
+    public function paginate($items, $perPage = 7, $page = null)
+    {
         $page = $page ?: (Paginator::resolveCurrentPage() ?: 1);
         $items = $items instanceof Collection ? $items : Collection::make($items);
         return new LengthAwarePaginator($items->forPage($page, $perPage), $items->count(), $perPage, $page, [
@@ -125,22 +130,25 @@ class Practo extends Controller
             'pageName' => 'page',
         ]);
     }
-    function logout(){
+    function logout()
+    {
         Session::forget('admin');
         return redirect('/');
     }
-    function delete($id){
+    function delete($id)
+    {
         $booking = booking::find($id);
-        if($booking){
-            if(is_file(public_path('uploads/'.$booking->file_name))){
-                unlink('uploads/'.$booking->file_name);
+        if ($booking) {
+            if (is_file(public_path('uploads/' . $booking->file_name))) {
+                unlink('uploads/' . $booking->file_name);
             }
             $booking->delete();
             Session::flash('delete', 'Deleted Successfully!');
         }
         return redirect('/bookings list');
     }
-    function database(){
+    function database()
+    {
         $tests = DB::select("select id, test_name from tests order by id");
         $labs = DB::select("select id, lab_name from labs order by id");
         $associations = DB::select("select tests_labs.test_id, tests_labs.lab_id, tests.test_name, labs.lab_name
@@ -150,13 +158,14 @@ class Practo extends Controller
                                 order by tests_labs.lab_id, tests_labs.test_id");
         return view('/database', compact('tests', 'labs', 'associations'));
     }
-    function add_tests(Request $req){
+    function add_tests(Request $req)
+    {
         $req->validate([
             "test_name" => "required"
         ]);
         $test_name = $req->input('test_name');
         $data = test::where(['test_name' => $test_name])->get();
-        if($data->isEmpty()){
+        if ($data->isEmpty()) {
             $test = new test;
             $test->test_name = $test_name;
             $test->save();
@@ -166,13 +175,14 @@ class Practo extends Controller
         Session::flash('test', 'Test already exists!');
         return redirect('/database')->withInput();
     }
-    function add_labs(Request $req){
+    function add_labs(Request $req)
+    {
         $req->validate([
             "lab_name" => "required"
         ]);
         $lab_name = $req->input('lab_name');
         $data = lab::where(['lab_name' => $lab_name])->get();
-        if($data->isEmpty()){
+        if ($data->isEmpty()) {
             $lab = new lab;
             $lab->lab_name = $req->input('lab_name');
             $lab->save();
@@ -182,55 +192,58 @@ class Practo extends Controller
         Session::flash('lab', 'Lab already exists!');
         return redirect('/database')->withInput();
     }
-    function add_associations(Request $req){
+    function add_associations(Request $req)
+    {
         $req->validate([
             "test_id" => "required|numeric",
-            "lab_id" => "required|numeric"
+            "lab_id" => "required"
         ]);
-        $test_id = $req->input('test_id');
+        $test_ids = explode(",", $req->input('test_id'));
         $lab_id = $req->input('lab_id');
-        $data = tests_lab::where(['test_id' => $test_id, 'lab_id' => $lab_id])->get();
-        if(test::find($test_id) and lab::find($lab_id) and $data->isEmpty()){
-            $test_id = $req->input('test_id');
-            $lab_id = $req->input('lab_id');
-            DB::select("insert into tests_labs(test_id, lab_id) values($test_id, $lab_id)");
-            Session::flash('associations_db', 'Association Added Successfully!');
-            return redirect('/database');
-        }
-        else if(!$data->isEmpty()){
-            Session::flash('association', 'Selected Test ID and Lab ID already exists!');
-            return redirect('/database')->withInput();
-        }
-        else{
-            Session::flash('association', 'Selected Test ID or Lab ID does not exist!');
-            return redirect('/database')->withInput();
+        foreach ($test_ids as $test_id) {
+            $data = tests_lab::where(['test_id' => $test_id, 'lab_id' => $lab_id])->get();
+            if (test::find($test_id) and lab::find($lab_id) and $data->isEmpty()) {
+                DB::select("insert into tests_labs(test_id, lab_id) values($test_id, $lab_id)");
+                Session::flash('associations_db', 'Association Added Successfully!');
+                return redirect('/database');
+            } else if (!$data->isEmpty()) {
+                Session::flash('association', "Test ID: $test_id and Lab ID: $lab_id already exists!");
+                return redirect('/database')->withInput();
+            } else {
+                Session::flash('association', "Test ID: $test_id and Lab ID: $lab_id does not exist!");
+                return redirect('/database')->withInput();
+            }
         }
     }
-    function delete_test($id){
+    function delete_test($id)
+    {
         $test = test::find($id);
-        if($test){
+        if ($test) {
             $test->delete();
             Session::flash('tests_db', 'Test Deleted Successfully!');
         }
         return redirect('/database');
     }
-    function delete_lab($id){
+    function delete_lab($id)
+    {
         $lab = lab::find($id);
-        if($lab){
+        if ($lab) {
             $lab->delete();
             Session::flash('labs_db', 'Lab Deleted Successfully!');
         }
         return redirect('/database');
     }
-    function delete_association($test_id, $lab_id){
+    function delete_association($test_id, $lab_id)
+    {
         $data = DB::select("select * from tests_labs where test_id = $test_id and lab_id = $lab_id");
-        if($data){
+        if ($data) {
             DB::select("delete from tests_labs where test_id = $test_id and lab_id = $lab_id");
             Session::flash('associations_db', 'Association Deleted Successfully!');
         }
         return redirect('/database');
     }
-    function edit($id){
+    function edit($id)
+    {
         $tests = DB::select("select id, test_name from tests order by id");
         $labs = DB::select("select id, lab_name from labs order by id");
         $data = DB::select("select B.user_id, U.name, U.email, U.contact_number, U.age, U.gender, U.address, B.id, T.test_name, L.lab_name,
@@ -241,7 +254,8 @@ class Practo extends Controller
                             join labs L on B.lab_id = L.id");
         return view('/edit', ['tests' => $tests, 'labs' => $labs, 'data' => $data]);
     }
-    function users_details(Request $req){
+    function users_details(Request $req)
+    {
         $req->validate([
             "name" => "required",
             "contact_number" => "required|digits:10",
@@ -261,7 +275,8 @@ class Practo extends Controller
         Session::flash('edit', 'Data Changed Successfully!');
         return redirect('/bookings list');
     }
-    function bookings_details(Request $req){
+    function bookings_details(Request $req)
+    {
         $req->validate([
             "test" => "required",
             "lab" => "required",
@@ -272,28 +287,29 @@ class Practo extends Controller
         $booking = booking::find($req->input('booking_id'));
         $booking->test_id = $req->input('test');
         $booking->lab_id = $req->input('lab');
-        if($req->file('prescription')){
+        if ($req->file('prescription')) {
             $booking->prescription = $req->file('prescription');
             $file = $req->file('prescription');
             $extension = $file->getClientOriginalExtension();
-            $filename = $booking->user_id.'_'.time().'.'.$extension;
+            $filename = $booking->user_id . '_' . time() . '.' . $extension;
             $file->move('uploads', $filename);
             $booking->file_name = $filename;
         }
         $booking->selected_date = $req->input('date');
-        $booking->timeslot = $req->input('timeslot');    
+        $booking->timeslot = $req->input('timeslot');
         $booking->save();
         Session::flash('edit', 'Data Changed Successfully!');
         return redirect('/bookings list');
     }
-    function edit_test(Request $req){
+    function edit_test(Request $req)
+    {
         $req->validate([
             "test" => "required",
         ]);
         $test_id = $req->input('test_id');
         $test_name = $req->input('test');
         $data = DB::select("select test_name from tests where id != $test_id and test_name = '$test_name'");
-        if($data){
+        if ($data) {
             Session::flash('tests_error', 'Test Alredy Exists!');
             return redirect('/database');
         }
@@ -304,14 +320,15 @@ class Practo extends Controller
         Session::flash('tests_db', 'Data Changed Successfully!');
         return redirect('/database');
     }
-    function edit_lab(Request $req){
+    function edit_lab(Request $req)
+    {
         $req->validate([
             "lab" => "required",
         ]);
         $lab_id = $req->input('lab_id');
         $lab_name = $req->input('lab');
         $data = DB::select("select lab_name from labs where id != $lab_id and lab_name = '$lab_name'");
-        if($data){
+        if ($data) {
             Session::flash('labs_error', 'Lab Alredy Exists!');
             return redirect('/database');
         }
