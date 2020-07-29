@@ -275,7 +275,7 @@
                         <div class="row justify-content-around">
                             <div class="col-4">
                                 <div class="row">
-                                    <input class="form-control" id="test_id" name="test_id" type="text" placeholder="Test ID" value="{{old('test_id')}}">
+                                    <input class="form-control" id="test_id" name="test_id" type="text" placeholder="Test ID(separated by comma(,) for multiple entries)" value="{{old('test_id')}}">
                                 </div>
                                 @error('test_id')
                                 <div class="row" style="padding-top: 10px;">

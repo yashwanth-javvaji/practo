@@ -195,8 +195,8 @@ class Practo extends Controller
     function add_associations(Request $req)
     {
         $req->validate([
-            "test_id" => "required|numeric",
-            "lab_id" => "required"
+            "test_id" => "required|",
+            "lab_id" => "required|numeric"
         ]);
         $test_ids = explode(",", $req->input('test_id'));
         $lab_id = $req->input('lab_id');
