@@ -199,12 +199,14 @@ class Practo extends Controller
             "lab_id" => "required|numeric"
         ]);
         $test_ids = explode(",", $req->input('test_id'));
+        print_r ($test_ids);
         $lab_id = $req->input('lab_id');
         foreach ($test_ids as $test_id) {
+            print_r ($test_id);
             $data = tests_lab::where(['test_id' => $test_id, 'lab_id' => $lab_id])->get();
             if (test::find($test_id) and lab::find($lab_id) and $data->isEmpty()) {
                 DB::select("insert into tests_labs(test_id, lab_id) values($test_id, $lab_id)");
-                Session::flash('associations_db', 'Association Added Successfully!');
+                Session::flash('associations_db', 'Associations Added Successfully!');
                 return redirect('/database');
             } else if (!$data->isEmpty()) {
                 Session::flash('association', "Test ID: $test_id and Lab ID: $lab_id already exists!");
