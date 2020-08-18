@@ -96,7 +96,7 @@
                 <td>{{$item->selected_date}}</td>
                 <td>{{$item->timeslot}}</td>
                 <td>
-                    <!--<a href="/edit/{{$item->id}}"><i class="fa fa-edit" style="color: black;"></i></a>-->
+                    <a href="/edit/{{$item->id}}"><i class="fa fa-edit" style="color: black;"></i></a>
                     <a href="/delete/{{$item->id}}"><i class="fa fa-trash" style="color: red;"></i></a>
                 </td>
             </tr>
