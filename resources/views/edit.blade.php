@@ -150,28 +150,28 @@
         </button>
         <div class="collapse navbar-collapse" id="navbar-content">
             <ul class="navbar-nav ml-auto" align="center">
-                <li class="nav-item">
-                    <a class="nav-link" href="/" style="padding-left: 10px;">Home</a>
+            <li class="nav-item">
+                    <a class="nav-link" href="/" style="padding-left: 10px;"><strong>Home</strong></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/#about" style="padding-left: 10px;">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/#contact-us" style="padding-left: 10px;">Contact Us</a>
+                    <a class="nav-link" href="#contact-us" style="padding-left: 10px;"><strong>Contact Us</strong></a>
                 </li>
                 @if(Session::get('admin'))
                 <li class="nav-item">
-                    <a class="nav-link active" href="/bookings list" style="padding-left: 10px;">Bookings List</a>
+                    <a class="nav-link" href="/bookings list" style="padding-left: 10px;"><strong>Bookings List</strong></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/database" style="padding-left: 10px;">Database</a>
+                    <a class="nav-link active" href="/database" style="padding-left: 10px;"><strong>Database</strong></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/logout" style="padding-left: 10px;">Logout</a>
+                    <a class="nav-link" href="/logout" style="padding-left: 10px;"><strong>Logout</strong></a>
                 </li>
                 @else
                 <li class="nav-item">
-                    <a class="nav-link" href="/admin login" style="padding-left: 10px;">Admin Login</a>
+                    <a class="nav-link" href="#about" style="padding-left: 10px;"><strong>About</strong></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-toggle="modal" data-target="#adminLogin" style="padding-left: 10px;"><strong>Admin Login</strong></a>
                 </li>
                 @endif
             </ul>

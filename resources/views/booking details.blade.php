@@ -33,7 +33,7 @@
                     <a class="nav-link" href="/#about" style="padding-left: 10px;"><strong>About</strong></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#" data-toggle="modal" data-target="#adminLogin"><strong>Admin Login</strong></a>
+                    <a class="nav-link" href="#" data-toggle="modal" data-target="#adminLogin" style="padding-left: 10px;"><strong>Admin Login</strong></a>
                 </li>
                 @endif
             </ul>
