@@ -194,6 +194,7 @@
 
         #new-booking h2,
         #booking-details h2,
+        #user-details h2,
         #admin-login h2 {
             font-size: 50px;
             margin: 10px 0 10px 0;
@@ -201,6 +202,7 @@
 
         #new-booking,
         #booking-details,
+        #user-details,
         #admin-login {
             padding: 20px;
             background-color: rgba(0, 0, 128, 0.9);
@@ -264,7 +266,7 @@
             width: 130px;
         }
 
-        #booking-details .input-group-prepend {
+        #booking-details .input-group-prepend, #user-details .input-group-prepend {
             width: 180px;
         }
 
