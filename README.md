@@ -14,15 +14,11 @@ This web application allows for the easy placement of orders for diagnostic test
 
 ## Getting Started
 - Clone the repository
-
-   ```git clone https://github.com/javvajiyashwanth/practo.git```
+<br />```git clone https://github.com/javvajiyashwanth/practo.git```
 - Install dependencies
-
-   ```composer install```
+<br />```composer install```
 - Create a new MySQL database and update the .env file with your database credentials
 - Run migrations
-
-   ```php artisan migrate```
+<br />```php artisan migrate```
 - Start the development server
-
-   ```php artisan serve```
+<br />```php artisan serve```
